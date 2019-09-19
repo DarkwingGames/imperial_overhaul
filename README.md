@@ -1,2 +1,2 @@
 # imperial_overhaul
-CK2 mods, overhauling imperial government types
+CK2 mod, overhauling imperial government types
