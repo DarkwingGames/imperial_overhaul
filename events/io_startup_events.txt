@@ -1,0 +1,78 @@
+namespace = io_startup_event
+
+character_event = {
+	id = io_startup_event.1
+	is_triggered_only = yes
+	hide_window = yes
+	only_rulers = yes
+	trigger = {
+		is_save_game = no
+	}
+	immediate = {
+		if = {
+			limit = {
+				io_starts_as_imperial_trigger = no
+				NOT = {
+					top_liege = {government = roman_imperial_government}
+				}
+			}
+			set_character_flag = io_not_imperial
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					primary_title = {has_title_flag = starts_as_feudal}
+					is_government_potential = chinese_imperial_government
+					is_government_potential = chinese_bureaucracy_government
+				}
+				OR = {
+					io_starts_as_imperial_trigger = yes
+					top_liege = {government = roman_imperial_government}
+				}
+			}
+			set_character_flag = io_imperial
+			liege = {
+				opinion = {
+					modifier = imperial_government
+					who = ROOT
+				}
+				reverse_opinion = {
+					modifier = imperial_government
+					who = ROOT
+				}
+			}
+			
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					primary_title = {has_title_flag = starts_as_feudal}
+				}
+				OR = {
+					AND = {
+						io_starts_as_chinese_imperial_trigger = yes
+						is_government_potential = chinese_imperial_government
+					}
+					
+					top_liege = {government = chinese_imperial_government}
+				}
+			}
+			set_character_flag = io_chinese_imperial
+			if = {
+				limit = {tier = EMPEROR}
+				primary_title = {set_title_flag = pretender_chinese_empire}
+			}
+			if = {
+				limit = {
+					independent = no
+					higher_tier_than = baron
+				}
+				set_government_type = chinese_bureaucracy_government
+			}
+		}
+	}
+}
+
+

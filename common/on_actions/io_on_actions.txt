@@ -1,0 +1,22 @@
+on_startup = {
+	events = {
+	io_startup_event.1 #Sets up Imperial government
+	#io_startup_event.2 days = 1 #Periodic flag cleanup
+	#io_startup_event.3 days = 1	##Periodic flag cleanup
+
+	}
+}
+
+on_death = {
+	events = {
+		io_death_event.1 # Sorts out inheritance/flags
+		io_death_event.2
+	}
+}
+
+on_new_holder = {
+	events = {
+		io.on_new_holder_event.1 #Preserve Imperial Goverment features when titles change hands
+		io.on_new_holder_event.2 #Cleans up flags when characters become unlanded
+	}
+}

@@ -1,0 +1,18 @@
+753.1.1={
+	liege = "e_byzantium"
+	government = roman_imperial_government
+	holder=145839
+}
+855.1.1={
+	holder=145115
+}
+1060.1.1=
+{
+	holder=1742
+}
+#Seljuks
+1077.1.1=
+{
+	holder = 0
+	set_title_flag = starts_as_feudal
+}

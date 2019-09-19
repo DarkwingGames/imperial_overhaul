@@ -1,0 +1,84 @@
+namespace = io_death_event
+character_event = {
+	id = io_death_event.1# Transfers flags + unnomadifies imperial titles
+	hide_window = yes
+	only_playable = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_character_flag = io_feudal
+			has_character_flag = io_imperial
+			has_character_flag = io_chinese_imperial
+		}
+	}
+	immediate = {
+		if = {
+			limit = {io_is_imperial_trigger = yes}
+			any_demesne_title = {
+				limit = {
+					NOT = {has_title_flag = great_house_title}
+				}
+				set_title_nomad = {title = THIS status = no}
+			}
+			if = {
+				limit = {
+					government = roman_imperial_government
+				}
+				player_heir = {set_character_flag = io_imperial}
+				current_heir = {set_character_flag = io_imperial}
+			}
+			if = {
+				limit = {
+					OR = {
+						government = chinese_bureaucracy_government
+						government = chinese_imperial_government
+					}
+				}
+				player_heir = {set_character_flag = io_chinese_imperial}
+				current_heir = {set_character_flag = io_chinese_imperial}
+			}
+			
+		}
+		else = {
+			player_heir = {set_character_flag = io_feudal}
+			current_heir = {set_character_flag = io_feudal}
+		}
+		character_event = {id = io_death_event.2}
+	}
+}
+
+character_event = {
+	id = io_death_event.2# Transfers titles
+	hide_window = yes
+	only_playable = yes
+	is_triggered_only = yes
+	trigger = {
+		tier = KING
+		io_is_imperial_trigger = yes
+		OR = {
+			has_character_flag = io_imperial
+			has_character_flag = io_chinese_imperial
+		}
+	}
+	immediate = {
+		while = {
+			limit = {num_of_king_titles > 0}
+			primary_title = {save_event_target_as = current_primary_title}
+			current_heir = {save_event_target_as = appointed_heir}
+			event_target:current_primary_title = {
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { character = ROOT }
+						NOT = {has_title_flag = great_house_title}
+					}
+					gain_title = {event_target:appointed_heir }
+					player_heir = {add_weak_pressed_claim = THIS}
+				}
+				gain_title = {event_target:appointed_heir}
+				player_heir = {add_weak_pressed_claim = THIS}
+			}
+		}
+		
+	}
+		
+}

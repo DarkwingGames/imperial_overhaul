@@ -1,0 +1,14 @@
+330.1.1={
+	liege = "e_byzantium"
+	government = roman_imperial_government
+}
+769.1.1={
+	holder=145825
+}
+867.1.1={
+	holder=145110
+}
+1066.1.1 = {
+	holder = 0
+	set_title_flag = starts_as_feudal
+}

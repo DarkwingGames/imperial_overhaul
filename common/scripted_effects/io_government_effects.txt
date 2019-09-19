@@ -1,0 +1,25 @@
+io_switch_to_imperial = {
+	clr_character_flag = io_not_imperial
+	if = {
+		limit = {
+			NOR = {
+				religion_group = muslim #to do
+				is_government_potential = chinese_imperial_government
+				is_government_potential = monastic_imperial_government #to do
+			}
+			
+		}
+	set_character_flag = io_imperial
+	set_government_type = roman_imperial_government
+	}
+	if = {
+		limit = {is_government_potential = chinese_imperial_government}
+		set_character_flag = io_chinese_imperial
+		set_government_type = chinese_imperial_government
+	}
+	#if = {
+		#limit = {is_government_potential = monastic_imperial_government}
+		#set_character_flag = io_monastic_imperial
+		#set_government_type = monastic_imperial_government
+	#}
+}

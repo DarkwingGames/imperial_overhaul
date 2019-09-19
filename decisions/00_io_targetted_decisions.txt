@@ -1,0 +1,36 @@
+targetted_decisions = {
+    00_dismiss_governor = {
+		ai_check_intervall = 12
+		filter = vassals
+		only_playable = yes
+		from_potential = {
+			OR = {
+				has_character_flag = io_imperial
+				has_character_flag = io_chinese_imperial
+			}
+			
+			
+		}
+		potential = {
+			OR = {
+				has_character_flag = io_imperial
+				has_character_flag = io_chinese_imperial
+			}
+			is_landed = yes
+			
+		}
+		allow = {
+		FROM = { prestige = 200 }
+			
+		}
+		effect = {
+			####to be added
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

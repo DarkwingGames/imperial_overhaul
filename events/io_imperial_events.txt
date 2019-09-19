@@ -1,0 +1,8 @@
+namepace = io_imperial_event
+
+###Dismiss vassal
+letter_event = {
+	id = io_imperial_event.1
+	is triggered_only = yes
+	desc = EVTDESC_io_imperial_1
+}

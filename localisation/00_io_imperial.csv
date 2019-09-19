@@ -1,0 +1,3 @@
+00_dismiss_governor;Dismiss;;;;;;;;;x
+00_dismiss_governor_desc;Attempt to dismiss §Y[Root.GetTitledName]§! from all held titles and offices. \nThis will lower [This.GetHerHis] opinion §R-60§! and the opinion of other members of [This.GetHerHis] dynasty by §R-15§!. \nIf [This.GetSheHe] chooses to refuse, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
+EVTDESC_io_imperial_1;To my loyal subject,\nI am afraid I must ask you to lay down command of the [PrimaryTitle.GetFullName]. [PrimaryTitle.Heir.GetBestName] has been chosen as your successor and will rule the My councillors will determine who in the [From.PrimaryTitle.GetFullName] is best suited to become [viceroy_title.GetRulerTitle].\n\nSincerely,\n[From.GetBestName];;;;;;;;;;;;;x

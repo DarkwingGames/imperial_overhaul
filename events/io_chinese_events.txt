@@ -1,0 +1,22 @@
+namespace = io_chinese_event
+
+narrative_event = {
+	id = io_chinese_event.1
+	title = EVTTITLEHF24240
+	desc = EVTDESCHFA24240
+	picture = GFX_evt_china_expansionist
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		
+	}
+	
+	option = { #Gain Chinese Imperialism bloodline
+		name = EVTOPTAHF24240
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}

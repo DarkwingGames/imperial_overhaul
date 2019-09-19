@@ -1,0 +1,53 @@
+330.1.1={
+	liege = "e_byzantium"
+	government = roman_imperial_government
+}
+753.1.1={
+	liege = "k_bulgaria"
+	set_title_flag = starts_as_feudal
+	holder=145818
+}
+852.1.1={
+	holder=70382 #Boris
+}
+860.1.1={
+	holder=712
+}
+1060.1.1={
+	liege = "e_byzantium"
+	government = roman_imperial_government
+	holder=20484
+}
+1078.1.1=
+{
+holder=20480
+}
+1116.1.1=
+{
+holder=125752
+}
+1130.1.1=
+{
+holder=125753
+}
+1170.1.1=
+{
+holder=215001
+}
+1185.9.12=
+{
+holder=215061
+}
+1186.1.1=
+{
+holder=215001
+}
+1193.1.1=
+{
+holder=34584
+}
+#Bulgarian conquest
+1203.1.1=
+{
+	holder = 0
+}
