@@ -21,6 +21,7 @@ decisions = {
 			}
 			is_nomadic = no
 			is_feudal = yes
+			tier = EMPEROR
 			NOT = { government = chinese_imperial_government }
 			has_dlc = "Jade Dragon"
 			holy_order = no
@@ -32,8 +33,7 @@ decisions = {
 			prisoner = no
 			NOT = { trait = incapable }
 			is_tributary = no
-			tier = EMPEROR
-			
+			primary_title = {has_law = ze_administration_laws_2 }
 			conditional_tooltip = {
 				trigger = {
 					AND = {
@@ -101,7 +101,6 @@ decisions = {
 			else = {
 			    wealth = -1000
 			}
-			#set_character_flag = io_chinese_imperial
 			character_event = { id = io_chinese_event.1} ##add tooltip? 
 			custom_tooltip = {
 				text = adopt_chinese_imperialism_tt
@@ -259,6 +258,13 @@ decisions = {
 			}
 			switch_to_imperial_effect = yes
 			custom_tooltip = { text = adopt_chinese_imperialism_gov_tt }
+			any_realm_character = {
+				limit = {
+					is_ruler = yes
+					higher_tier_than = baron
+				}
+				set_character_flag = io_not_chinese_imperial
+			}
 		}
 	}
 
