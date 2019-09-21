@@ -1,8 +1,8 @@
 on_startup = {
 	events = {
-	io_startup_event.1 #Sets up Imperial government
-	#io_startup_event.2 days = 1 #Periodic flag cleanup
-	#io_startup_event.3 days = 1	##Periodic flag cleanup
+	io_startup_event.1 
+	io_startup_event.2 
+	io_startup_event.3 
 
 	}
 }

@@ -23,8 +23,6 @@ feudal_governments = {
 			tier = EMPEROR
 			primary_title = { 
 				has_title_flag = pretender_chinese_empire
-				has_law = ze_administration_laws_2
-			
 			}
 		
 			OR = {
@@ -103,9 +101,11 @@ feudal_governments = {
 			is_tribal = no
 			is_theocracy = no
 			higher_tier_than = baron
-			NOT = {is_government_potential = province_government}
-			NOT = {is_government_potential = monastic_province_government}
+			lower_tier_than = EMPEROR
+			#NOT = {is_government_potential = province_government}
+			#NOT = {is_government_potential = monastic_province_government}
 			NOT = {has_character_flag = io_not_imperial}
+			NOT = {has_character_flag = io_not_chinese_imperial}
 			NOT = {
 				primary_title = {has_title_flag = starts_as_feudal}
 			}
@@ -160,11 +160,12 @@ feudal_governments = {
 			NOT = {is_government_potential = monastic_imperial_government}
 			
 			OR = {
-				# ERE starts with Imperial Government
+				
+				io_starts_as_imperial_trigger = yes # ERE starts with Imperial Government
 				primary_title = {
-					has_law = ze_adminstration_laws_2
-				}	
-				io_starts_as_imperial_trigger = yes
+					has_title_flag = io_imperial #Set upon passing Imperial Administration
+				}
+				
 			}
 			NOT = {
 				primary_title = {has_title_flag = starts_as_feudal}
@@ -226,6 +227,7 @@ feudal_governments = {
 			is_patrician = no
 			is_tribal = no
 			is_theocracy = no
+			lower_tier_than = EMPEROR
 			higher_tier_than = baron
 			
 			NOT = {is_government_potential = chinese_bureaucracy_government}
@@ -277,8 +279,6 @@ feudal_governments = {
 		potential = {
 			tier = EMPEROR
 			is_patrician = no
-			NOT = {has_character_flag = io_chinese_imperial}
-			NOT = {has_character_flag = io_imperial}
 			
 			AND = { 
 				culture_group = tibetan_group
@@ -292,12 +292,11 @@ feudal_governments = {
 			NOT = {
 				primary_title = {has_title_flag = starts_as_feudal}
 			}
-			OR = {
-				#Tibet for testing purposes
+			OR = {	
+				io_starts_as_imperial_trigger = yes # Tibet starts with Imperial Government for testing
 				primary_title = {
-					has_law = ze_adminstration_laws_2
-				}	
-				io_starts_as_monastic_imperial_trigger = yes
+					has_title_flag = io_imperial #Set upon passing Imperial Administration
+				}
 			}		
 		}
 		
@@ -364,6 +363,8 @@ feudal_governments = {
 			is_patrician = no
 			is_tribal = no
 			is_theocracy = no
+			lower_tier_than = EMPEROR
+			higher_tier_than = BARON
 			NOT = {is_government_potential = chinese_bureaucracy_government}
 			NOT = {has_character_flag = io_not_imperial}
 			NOT = {

@@ -810,6 +810,7 @@ laws = {
 				any_realm_lord = {
 					limit = {
 						higher_tier_than = baron
+						NOT = {io_is_imperial_trigger = yes}
 					}
 					set_character_flag = io_not_imperial
 				}

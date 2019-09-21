@@ -6,44 +6,21 @@ character_event = {
 	is_triggered_only = yes
 	trigger = {
 		OR = {
-			has_character_flag = io_feudal
-			has_character_flag = io_imperial
-			has_character_flag = io_chinese_imperial
+			has_character_flag = io_not_imperial
+			has_character_flag = io_not_chinese_imperial
+			
 		}
 	}
 	immediate = {
 		if = {
-			limit = {io_is_imperial_trigger = yes}
-			any_demesne_title = {
-				limit = {
-					NOT = {has_title_flag = great_house_title}
-				}
-				set_title_nomad = {title = THIS status = no}
-			}
-			if = {
-				limit = {
-					government = roman_imperial_government
-				}
-				player_heir = {set_character_flag = io_imperial}
-				current_heir = {set_character_flag = io_imperial}
-			}
-			if = {
-				limit = {
-					OR = {
-						government = chinese_bureaucracy_government
-						government = chinese_imperial_government
-					}
-				}
-				player_heir = {set_character_flag = io_chinese_imperial}
-				current_heir = {set_character_flag = io_chinese_imperial}
-			}
-			
+			limit = {has_character_flag = io_not_imperial}
+			player_heir = {set_character_flag = io_not_imperial}
 		}
-		else = {
-			player_heir = {set_character_flag = io_feudal}
-			current_heir = {set_character_flag = io_feudal}
+		if = {
+			limit = {has_character_flag = io_not_chinese_imperial}
+			player_heir = {set_character_flag = io_not_chinese_imperial}
 		}
-		character_event = {id = io_death_event.2}
+		
 	}
 }
 

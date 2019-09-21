@@ -1,0 +1,111 @@
+defined_text = {
+	name = CheckImperialGrantTitle
+
+	use_first_valid = yes # Defaults to no
+
+	text = {
+		trigger = {
+			OR = {
+				io_is_imperial_trigger = yes
+				AND = {
+					is_landed = no
+					OR = {
+						liege = {io_is_imperial_trigger = yes } 
+						top_liege = {io_is_imperial_trigger = yes}
+					}
+				}
+			}
+		}
+		localisation_key = io_appoint_governor
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = io_grant_title
+	}	
+}
+
+defined_text = {
+	name = CheckImperialGrantTitleDesc
+
+	use_first_valid = yes # Defaults to no
+
+	text = {
+		trigger = {
+			OR = {
+				io_is_imperial_trigger = yes
+				AND = {
+					is_landed = no
+					OR = {
+						liege = {io_is_imperial_trigger = yes } 
+						top_liege = {io_is_imperial_trigger = yes}
+					}
+				}
+			}
+		}
+		localisation_key = io_appoint_governor_desc
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = io_grant_title_desc
+	}	
+}
+
+defined_text = {
+	name = CheckImperialGrantTitleDescLong
+
+	use_first_valid = yes # Defaults to no
+
+	text = {
+		trigger = {
+			OR = {
+				io_is_imperial_trigger = yes
+				AND = {
+					is_landed = no
+					OR = {
+						liege = {io_is_imperial_trigger = yes } 
+						top_liege = {io_is_imperial_trigger = yes}
+					}
+				}
+			}
+		}
+		localisation_key = io_appoint_governor_desc_long
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = io_grant_title_desc_long
+	}	
+}
+
+defined_text = {
+	name = CheckImperialGrantTitleText1
+
+	use_first_valid = yes # Defaults to no
+
+	text = {
+		trigger = {
+			OR = {
+				io_is_imperial_trigger = yes
+				AND = {
+					is_landed = no
+					OR = {
+						liege = {io_is_imperial_trigger = yes } 
+						top_liege = {io_is_imperial_trigger = yes}
+					}
+				}
+			}
+		}
+		localisation_key = io_appoint_governor_text_1
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = io_grant_title_text_1
+	}
+}

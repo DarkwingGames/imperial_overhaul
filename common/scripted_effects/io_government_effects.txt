@@ -5,21 +5,26 @@ io_switch_to_imperial_effect = {
 			NOR = {
 				religion_group = muslim #to do
 				is_government_potential = chinese_imperial_government
-				is_government_potential = monastic_imperial_government #to do
+				is_government_potential = monastic_imperial_government 
 			}
 			
 		}
-	set_character_flag = io_imperial
+	primary_title = {
+		set_title_flag = io_imperial
+	}
 	set_government_type = roman_imperial_government
+	
 	}
 	if = {
+		#title flag chinese_pretender_empire already set in the decision
 		limit = {is_government_potential = chinese_imperial_government}
-		set_character_flag = io_chinese_imperial
 		set_government_type = chinese_imperial_government
 	}
 	if = {
 		limit = {is_government_potential = monastic_imperial_government}
-		set_character_flag = io_monastic_imperial
+		primary_title = {
+			set_title_flag = io_imperial
+		}
 		set_government_type = monastic_imperial_government
 	}
 }

@@ -29,7 +29,7 @@ io_starts_as_chinese_imperial_trigger = {
 	OR = {# Empires that start as Chinese Imperial go here
 		primary_title = {
 			OR = {
-				
+				title = e_china_west_governor
 			}
 		}
 	}
@@ -39,7 +39,6 @@ io_starts_as_chinese_imperial_trigger = {
 
 io_is_imperial_trigger = {
 	OR = {
-		is_ruler = yes
 		government = chinese_imperial_government
 		government = chinese_bureaucracy_government
 		government = roman_imperial_government

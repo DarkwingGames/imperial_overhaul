@@ -4,20 +4,11 @@ targetted_decisions = {
 		filter = vassals
 		only_playable = yes
 		from_potential = {
-			OR = {
-				has_character_flag = io_imperial
-				has_character_flag = io_chinese_imperial
-			}
-			
-			
+			io_is_imperial_trigger = yes
 		}
 		potential = {
-			OR = {
-				has_character_flag = io_imperial
-				has_character_flag = io_chinese_imperial
-			}
+			io_is_imperial_trigger = yes
 			is_landed = yes
-			
 		}
 		allow = {
 		FROM = { prestige = 200 }
