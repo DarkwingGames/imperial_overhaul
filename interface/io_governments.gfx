@@ -1,0 +1,118 @@
+spriteTypes = {
+    # GOVERNMENT ICONS
+    spriteType = {
+        name = "GFX_icon_chinese_bureaucracy_government"
+        texturefile = "gfx\\interface\\government_icon_confucian_bureaucracy.dds"
+    }
+
+    spriteType = {
+        name = "GFX_icon_province_government"
+        texturefile = "gfx\\governments\\government_icon_province_government.tga"
+    }
+
+    spriteType = {
+        name = "GFX_icon_monastic_imperial_government"
+        texturefile = "gfx\\governments\\government_icon_province_government.tga"
+    }
+
+    spriteType = {
+        name = "GFX_icon_monastic_province_government"
+        texturefile = "gfx\\governments\\government_icon_province_government.tga"
+    }
+
+      # CONFUCIAN BUREAUCRACY GOVERNMENT
+      spriteType = {
+        name = "GFX_charframe_150_confucian"
+        texturefile = "gfx\\interface\\charframe_150_chineseimperial.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_100_confucian"
+        texturefile = "gfx\\interface\\charframe_100_chineseimperial.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_75_confucian"
+        texturefile = "gfx\\interface\\charframe_75_chineseimperial.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_50_confucian"
+        texturefile = "gfx\\interface\\charframe_50_chineseimperial.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_34_confucian"
+        texturefile = "gfx\\interface\\charframe_34_chineseimperial.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+
+     # PROVINCE GOVERNMENT
+     spriteType = {
+        name = "GFX_charframe_150_province"
+        texturefile = "gfx\\governments\\charframe_150_province.tga"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_100_province"
+        texturefile = "gfx\\governments\\charframe_100_province.tga"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_75_province"
+        texturefile = "gfx\\governments\\charframe_75_province.tga"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_50_province"
+        texturefile = "gfx\\governments\\charframe_50_province.tga"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_34_province"
+        texturefile = "gfx\\governments\\charframe_34_province.tga"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+
+    # CHINESE IMPERIAL GOVERNMENT
+    spriteType = {
+        name = "GFX_charframe_150_chineseimperial"
+        texturefile = "gfx\\interface\\charframe_150_confucian_bureaucracy.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_100_chineseimperial"
+        texturefile = "gfx\\interface\\charframe_100_confucian_bureaucracy.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_75_chineseimperial"
+        texturefile = "gfx\\interface\\charframe_75_confucian_bureaucracy.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_50_chineseimperial"
+        texturefile = "gfx\\interface\\charframe_50_confucian_bureaucracy.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_charframe_34_chineseimperial"
+        texturefile = "gfx\\interface\\charframe_34_confucian_bureaucracy.dds"
+        noOfFrames = 6
+        allwaystransparent = yes
+    }
+}

@@ -1,28 +1,23 @@
-io_can_be_imperial_trigger = {
-	is_ruler = yes
-	higher_tier_than = baron
-	is_tribal = no #??
-	OR = {
-		NOT = {has_character_flag = io_not_imperial }
-		has_character_flag = io_imperial
-		has_character_flag = io_chinese_imperial
-	}
-	NOT = {has_law = succ_patrician_elective }
-	NOT = {has_law = succ_open_elective }
-	NOT = {has_law = succ_papal_succession }
-	NOT = {has_law = succ_catholic_bishopric }
-	NOT = {has_law = succ_nomad_succession}
-	
-	
-
-}
-
 io_starts_as_imperial_trigger = {
 
 	OR = {# Empires that start as Imperial go here
 		primary_title = {
 			OR = {
 				title = e_byzantium
+				
+			}
+		}
+	}
+
+}
+
+io_starts_as_monastic_imperial_trigger = {
+
+	OR = {# Empires that start as Imperial go here
+		primary_title = {
+			OR = {
+				title = e_tibet
+				
 			}
 		}
 	}
@@ -48,6 +43,9 @@ io_is_imperial_trigger = {
 		government = chinese_imperial_government
 		government = chinese_bureaucracy_government
 		government = roman_imperial_government
+		government = province_government
+		government = monastic_imperial_government
+		government = monastic_province_goverment
 		
 	}
 }
