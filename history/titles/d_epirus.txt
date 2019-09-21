@@ -13,7 +13,7 @@
 1060.1.1={
 	clear_tribute_suzerain = e_byzantium
 	liege=e_byzantium
-	government = roman_imperial_government
+	government = province_government
 	holder=1764
 }
 1081.10.18={

@@ -12,12 +12,12 @@ spriteTypes = {
 
     spriteType = {
         name = "GFX_icon_monastic_imperial_government"
-        texturefile = "gfx\\governments\\government_icon_province_government.tga"
+        texturefile = "gfx\\governments\\government_icon_monastic_imperial_government.tga"
     }
 
     spriteType = {
         name = "GFX_icon_monastic_province_government"
-        texturefile = "gfx\\governments\\government_icon_province_government.tga"
+        texturefile = "gfx\\governments\\government_icon_monastic_province_government.tga"
     }
 
       # CONFUCIAN BUREAUCRACY GOVERNMENT

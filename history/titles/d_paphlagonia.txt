@@ -1,6 +1,6 @@
 330.1.1={
 	liege = "e_byzantium"
-	government = roman_imperial_government
+	government = province_government
 }
 759.1.1={
 	holder=145838
@@ -28,7 +28,7 @@
 1097.6.19=
 {
 	liege="e_byzantium"
-	government = roman_imperial_government
+	government = province_government
 }
 1097.6.19=
 {

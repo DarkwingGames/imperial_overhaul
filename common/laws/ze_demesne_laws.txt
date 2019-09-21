@@ -793,12 +793,12 @@ laws = {
 		ai_will_revoke = { factor = 0 }
 		pass_effect = {
 			owner = {
-				io_switch_to_imperial = yes
+				io_switch_to_imperial_effect = yes
 			}
 		}
 		effect = {
 			owner = {
-				io_switch_to_imperial = yes
+				io_switch_to_imperial_effect = yes
 			}
 			if = {
 				limit = { has_law = ze_administration_laws_0 }

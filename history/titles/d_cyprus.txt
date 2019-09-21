@@ -1,6 +1,6 @@
 330.1.1={
 	liege = "e_byzantium"
-	government = roman_imperial_government
+	government = province_government
 }
 688.1.1={
 	liege=0
@@ -9,7 +9,7 @@
 }
 965.1.1={
 	liege="e_byzantium"
-	government = roman_imperial_government
+	government = province_government
 }
 1060.1.1=
 {

@@ -1,4 +1,4 @@
-io_switch_to_imperial = {
+io_switch_to_imperial_effect = {
 	clr_character_flag = io_not_imperial
 	if = {
 		limit = {
@@ -17,9 +17,9 @@ io_switch_to_imperial = {
 		set_character_flag = io_chinese_imperial
 		set_government_type = chinese_imperial_government
 	}
-	#if = {
-		#limit = {is_government_potential = monastic_imperial_government}
-		#set_character_flag = io_monastic_imperial
-		#set_government_type = monastic_imperial_government
-	#}
+	if = {
+		limit = {is_government_potential = monastic_imperial_government}
+		set_character_flag = io_monastic_imperial
+		set_government_type = monastic_imperial_government
+	}
 }

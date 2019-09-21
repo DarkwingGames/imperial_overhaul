@@ -1,6 +1,6 @@
 330.1.1={
 	liege="e_byzantium"
-	government = roman_imperial_government
+	government = province_government
 }
 681.1.1={
 	liege="k_bulgaria"
@@ -30,7 +30,7 @@
 1066.1.1=
 {
 liege="e_byzantium"
-government = roman_imperial_government
+government = province_government
 }
 1066.1.1=
 {
@@ -48,7 +48,7 @@ set_title_flag = starts_as_feudal
 1073.1.1=
 {
 liege="e_byzantium"
-government = roman_imperial_government
+government = province_government
 holder=41537
 }
 1094.3.12=
