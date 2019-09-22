@@ -1,8 +1,134 @@
-namepace = io_imperial_event
+namespace = io_imperial_event # Cleans up independent feudal ruler, can't be triggered because there is on on_independence on_action
 
-###Dismiss vassal
+character_event = {
+	id = io_imperial_event.1
+	hide_window = yes
+	only_playable = yes
+	only_independent = yes
+	has_character_flag = io_imperial_check
+
+	trigger = {
+		io_is_imperial_trigger = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		any_demesne_title = {
+			set_title_nomad = {title = THIS status = no}
+		}
+		clr_character_flag = io_imperial_check
+	}
+}
+
+#####Dismissing Governors######
+
 letter_event = {
 	id = io_imperial_event.1
-	is triggered_only = yes
-	desc = EVTDESC_io_imperial_1
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		io_is_imperial_trigger = yes
+	}
+	immediate = {
+		primary_title = {
+			save_event_target_as = io_primary_title
+		}
+		if = {
+			limit = {
+				player_heir = {
+					NOT = {character = current_heir}
+				}
+			}
+			player_heir = {
+				save_event_target_as = io_player_heir
+			}
+		}
+		current_heir = {
+			save_event_target_as = io_current_heir
+		}
+		
+	}
+	option = {
+		name = EVTOPTA_io_imperial_event.1 # Accept
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0.7
+				event_target:viceroy_title = { has_flag = usurped_title }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { is_adult = no }
+			}
+
+			modifier = {
+				factor = 0.05
+				is_foe = FROM
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {trait = lunatic}
+			}
+
+			modifier = {
+				factor = 0.5
+				trait = lunatic
+			}
+
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 0.5
+				NOR = {
+					diplomacy = 5
+					martial = 5
+					stewardship = 5
+					intrigue = 5
+					learning = 5
+				}
+			}
+			modifier = {
+				factor = 0.75
+				is_dumb_trigger = yes
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { reverse_opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { reverse_opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { reverse_opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = FROM value = 20 }
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = FROM value = 40 }
+			}
+			modifier = {
+				factor = 1.5
+				reverse_opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				reverse_opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 2.0
+				holds_favor_on = FROM
+			}
+		}
+	}
 }
