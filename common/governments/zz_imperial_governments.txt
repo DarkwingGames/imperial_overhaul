@@ -279,6 +279,7 @@ feudal_governments = {
 		potential = {
 			tier = EMPEROR
 			is_patrician = no
+			NOT = {is_government_potential = chinese_imperial_government}
 			
 			AND = { 
 				culture_group = tibetan_group
@@ -293,7 +294,7 @@ feudal_governments = {
 				primary_title = {has_title_flag = starts_as_feudal}
 			}
 			OR = {	
-				io_starts_as_imperial_trigger = yes # Tibet starts with Imperial Government for testing
+				io_starts_as_monastic_imperial_trigger = yes # Tibet starts with Imperial Government for testing
 				primary_title = {
 					has_title_flag = io_imperial #Set upon passing Imperial Administration
 				}

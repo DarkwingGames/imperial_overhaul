@@ -1,5 +1,0 @@
-imperial_NAP = {
-	opinion = 0
-	#years = 3
-	non_aggression_pact = yes
-}

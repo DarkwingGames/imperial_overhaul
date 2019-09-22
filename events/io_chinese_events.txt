@@ -13,7 +13,7 @@ narrative_event = {
 		
 	}
 	
-	option = { #Gain Chinese Imperialism bloodline
+	option = {
 		name = EVTOPTAHF24240
 		ai_chance = { 
 			factor = 100

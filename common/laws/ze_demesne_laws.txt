@@ -564,6 +564,7 @@ laws = {
 			has_dlc = "Zeus"
 			NOT = { holder_scope = { is_nomadic = yes } }
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
+			NOT = { holder_scope = { io_is_imperial_trigger = yes}}
 		}
 		revoke_allowed = { always = no }
 		ai_will_do = { factor = 0 }
@@ -585,6 +586,7 @@ laws = {
 			has_dlc = "Zeus"
 			NOT = { holder_scope = { is_nomadic = yes } }
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
+			NOT = { holder_scope = { io_is_imperial_trigger = yes}}
 		}
 		revoke_allowed = { always = no }
 		ai_will_do = { 
@@ -627,11 +629,12 @@ laws = {
 			}
 		}
 		potential = {
+			
 			has_dlc = "Zeus"
 			NOT = { holder_scope = { is_nomadic = yes } }
 			NOT = { holder_scope = { has_religion_feature = religion_cosmopolitan } }
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = chinese_imperial_government } }
+			NOT = { holder_scope = { io_is_imperial_trigger = yes}}
 		}
 		revoke_allowed = { always = no }
 		ai_will_do = {
@@ -800,6 +803,8 @@ laws = {
 			owner = {
 				io_switch_to_imperial_effect = yes
 			}
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = yes
 			if = {
 				limit = { has_law = ze_administration_laws_0 }
 				custom_tooltip = {

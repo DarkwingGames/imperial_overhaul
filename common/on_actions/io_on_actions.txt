@@ -1,22 +1,51 @@
 on_startup = {
 	events = {
-	io_startup_event.1 
-	io_startup_event.2 
-	io_startup_event.3 
-
+	io_on_action_event.1 #Flag imperial characters, set titles to nomadic to disallow revocation
+	io_on_action_event.2 #Transfer flags from title history to characters
+	io_on_action_event.3 #Flag Empires that are supposed to start with Imperial Government
 	}
 }
 
-on_death = {
+on_new_holder_inheritance = {
 	events = {
-		io_death_event.1 # Sorts out inheritance/flags
-		io_death_event.2
+		io_on_action_event.4 #Renomadify titles after inheritance
+		
+		
 	}
 }
 
 on_new_holder = {
 	events = {
-		io.on_new_holder_event.1 #Preserve Imperial Goverment features when titles change hands
-		io.on_new_holder_event.2 #Cleans up flags when characters become unlanded
+		io_on_action_event.4 #Renomadify titles after inheritance
+		io_on_action_event.5 #Cleans up flags when characters become unlanded
+		
+	}
+}
+
+on_death = {
+	events = {
+		io_on_action_event.6 # Transfers flags on inheritance
+		io_on_action_event.7 # 
+		#io_on_action_event.8 #Kingdom inheritance
+	}
+}
+
+on_war_ended_victory = {
+	events = {
+		io_on_action_event.9 # Check potential new vassals/titles, flag them an make them "nomadic"
+		io_on_action_event.10 # Check potential new vassals/titles, clean up
+	}
+}
+
+ASK_FOR_VASSALIZATION_INTERACTION_ACCEPT_EVENT = {
+	events = {
+		io_on_action_event.9 # Check potential new vassals/titles, flag them an make them "nomadic"
+		io_on_action_event.10 # Check potential new vassals/titles, clean up
+	}
+}
+
+on_war_started = {
+	events = {
+		io_on_action_event.11 # Imperial realm started war, flag all vassals of the defender
 	}
 }

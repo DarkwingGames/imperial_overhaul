@@ -44,7 +44,7 @@ io_is_imperial_trigger = {
 		government = roman_imperial_government
 		government = province_government
 		government = monastic_imperial_government
-		government = monastic_province_goverment
+		government = monastic_province_government
 		
 	}
 }

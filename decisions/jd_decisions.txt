@@ -264,6 +264,10 @@ decisions = {
 					higher_tier_than = baron
 				}
 				set_character_flag = io_not_chinese_imperial
+				remove_opinion = {who = liege modifier = imperial_NAP}
+				remove_opinion = {who = top_liege modifier = imperial_NAP}
+				reverse_remove_opinion = {who = liege modifier = imperial_NAP}
+				reverse_remove_opinion = {who = top_liege modifier = imperial_NAP}
 			}
 		}
 	}
