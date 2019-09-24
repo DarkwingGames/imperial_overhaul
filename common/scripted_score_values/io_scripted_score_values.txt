@@ -1,0 +1,139 @@
+io_will_accept_decision_score = { ##Targetted decision acceptance
+	###FROM = decision taker = liege
+    modifier = {
+        factor = 0.1
+        FROM = { is_incapable = yes }
+    }
+    modifier = {
+        factor = 0.1
+        FROM = { is_adult = no }
+    }
+    modifier = {
+        factor = 0.05
+        is_foe = FROM
+	}
+	modifier = {
+        factor = 0.5
+        FROM = {trait = lunatic}
+	}
+	###ROOT = target = vassal
+    modifier = {
+        factor = 0.5
+        trait = lunatic
+    }
+    modifier = {
+        factor = 1.5
+        trait = kind
+    }
+    modifier = {
+        factor = 0.5
+        NOR = {
+            diplomacy = 5
+            martial = 5
+            stewardship = 5
+            intrigue = 5
+            learning = 5
+        }
+    }
+    modifier = {
+        factor = 0.75
+        is_dumb_trigger = yes
+	}
+	
+	modifier = {
+        factor = 0.75
+        trait = proud
+	}
+	
+	modifier = {
+        factor = 0.75
+        trait = ambitious
+    }
+    modifier = {
+        factor = 0.75
+        NOT = { reverse_opinion = { who = FROM value = 0 } }
+    }
+    modifier = {
+        factor = 0.5
+        NOT = { reverse_opinion = { who = FROM value = -25 } }
+    }
+    modifier = {
+        factor = 0.5
+        NOT = { reverse_opinion = { who = FROM value = -50 } }
+    }
+    modifier = {
+        factor = 1.2
+        opinion = { who = FROM value = 20 }
+    }
+    modifier = {
+        factor = 1.2
+        opinion = { who = FROM value = 40 }
+    }
+    modifier = {
+        factor = 1.5
+        reverse_opinion = { who = FROM value = 25 }
+    }
+    modifier = {
+        factor = 1.5
+        reverse_opinion = { who = FROM value = 50 }
+    }
+}
+
+io_will_bribe_score = {
+    modifier = {
+        factor = 0.5
+        trait = greedy
+    }
+    modifier = {
+        factor = 0.5
+        trait = gluttonous
+    }
+    modifier = {
+        factor = 0.5
+        trait = envious
+    }
+    modifier = {
+        factor = 1.5
+        trait = deceitful
+    }
+    modifier = {
+        factor = 1.2
+        FROM = {
+            trait = gluttonous
+        }
+        
+    }
+    modifier = {
+        factor = 1.2
+        FROM = {
+            trait = greedy
+        }
+        
+    }
+    modifier = {
+        factor = 1.2
+        FROM = {
+            trait = envious
+        }
+        
+    }
+    modifier = {
+        factor = 1.5
+        FROM = {trait = arbitrary} 
+    }
+    modifier = {
+        factor = 0.75
+        is_dumb_trigger = yes
+	}
+
+    modifier = {
+        factor = 2
+        scaled_wealth = 2.0
+        wealth = 200
+    }
+    modifier = {
+        factor = 2
+        scaled_wealth = 3.0
+        wealth = 300
+    }
+}

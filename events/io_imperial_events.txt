@@ -26,14 +26,20 @@ character_event = {
 #####Dismissing Governors######
 
 letter_event = {
-	id = io_imperial_event.1
+	id = io_imperial_event.2
+	desc = EVTDESC_io_imperial_event.2
 	only_playable = yes
 	is_triggered_only = yes
 
 	trigger = {
-		io_is_imperial_trigger = yes
+		
 	}
 	immediate = {
+		set_character_flag = test_1
+		save_event_target_as = io_dismissed_governor
+		liege = {
+			save_event_target_as = io_liege
+		}
 		primary_title = {
 			save_event_target_as = io_primary_title
 		}
@@ -53,82 +59,256 @@ letter_event = {
 		
 	}
 	option = {
-		name = EVTOPTA_io_imperial_event.1 # Accept
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.2 # Accept
 		ai_chance = {
-			factor = 70
-			modifier = {
-				factor = 0.7
-				event_target:viceroy_title = { has_flag = usurped_title }
+			factor = 50
+			io_will_accept_decision_score = yes
+		}
+		event_target:io_liege = {
+			letter_event = {id = io_imperial_event.3 days = 3 tooltip = ACCEPT} #inform liege
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_io_imperial_event.2 #Offer a favor
+		trigger = {
+			is_adult = yes
+			NOR = {
+				is_incapable = yes
+				is_dumb_trigger = yes
+				owes_favor_to = FROM
+				holds_favor_on = FROM
+				has_opinion_modifier = {who = event_target:io_liege modifier = io_accepted_favor_offer} #Prevent Exploits
+				has_opinion_modifier = {who = event_target:io_liege modifier = io_refused_favor_offer} #Prevent Exploits
 			}
+		}
+		ai_chance = {
+			factor = 50
 			modifier = {
-				factor = 0.5
-				FROM = { is_adult = no }
-			}
-
-			modifier = {
-				factor = 0.05
-				is_foe = FROM
-			}
-			modifier = {
-				factor = 0.5
-				FROM = {trait = lunatic}
-			}
-
-			modifier = {
-				factor = 0.5
-				trait = lunatic
-			}
-
-			modifier = {
-				factor = 1.5
-				trait = kind
-			}
-			modifier = {
-				factor = 0.5
+				factor = 0
 				NOR = {
-					diplomacy = 5
-					martial = 5
-					stewardship = 5
-					intrigue = 5
-					learning = 5
+					intrigue = 8
+					learning = 8
 				}
 			}
-			modifier = {
-				factor = 0.75
-				is_dumb_trigger = yes
+			
+			is_good_intrigue_character_score = yes
+		
+		event_target:io_liege = {
+			letter_event = { id = io_imperial_event.4 days = 3 tooltip = OFFER_FAVOR }# Send offer to liege
+		}
+	}
+	
+}
+
+letter_event = {#Liege is informed
+	id = io_imperial_event.3
+	desc = EVTDESC_io_imperial_event.3
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_fired_me}
+		}
+	}
+	option = {
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.3 #Excellent
+		ai_chance = {
+			factor = 100
+			
+		}
+		event_target:io_dismissed_governor = {# Fire governor, distribute claims
+			if = {
+				limit = {num_of_duke_titles == 1}
+				event_target:io_primary_title = {
+					capital_scope  = {
+						county = {
+							usurp_title = event_target:io_current_heir 
+							add_weak_pressed_claim = event_target:io_player_heir
+							remove_claim = event_target:io_dismissed_governor
+							add_weak_pressed_claim = event_target:io_dismissed_governor
+						}
+						
+					}
+					usurp_title = event_target:io_current_heir 
+					add_weak_pressed_claim = event_target:io_player_heir
+					remove_claim = event_target:io_dismissed_governor
+					add_weak_pressed_claim = event_target:io_dismissed_governor
+				}
 			}
-			modifier = {
-				factor = 0.75
-				NOT = { reverse_opinion = { who = FROM value = 0 } }
+			if = {
+				limit = {num_of_duke_titles = 1}
+				event_target:io_primary_title = {
+					any_de_jure_vassal_title  = {
+						limit = {
+							holder_scope = {character = event_target:io_dismissed_governor}
+						}
+							usurp_title = event_target:io_current_heir 
+							add_weak_pressed_claim = event_target:io_player_heir
+							remove_claim = event_target:io_dismissed_governor
+							add_weak_pressed_claim = event_target:io_dismissed_governor
+					}
+					usurp_title = event_target:io_current_heir 
+					add_weak_pressed_claim = event_target:io_player_heir
+					remove_claim = event_target:io_dismissed_governor
+					add_weak_pressed_claim = event_target:io_dismissed_governor
+				}
 			}
+		}
+
+	}
+
+	
+}
+
+letter_event = { #Liege recieves favor offer
+	id = io_imperial_event.4
+	desc = EVTDESC_io_imperial_event.4
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		
+	}
+	option = {# Accept the offer
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.4 
+		ai_chance = {
+			factor = 50
+			is_good_intrigue_character_score = yes
+		}
+		tooltip = { add_favor = event_target:io_dismissed_governor }
+		event_target:io_dismissed_governor = {
+			letter_event = {id = io_imperial_event.5} #Vassal is informed that his favor offer has been accepted
+		}
+	}
+
+	option = {#Refuse the offer
+		set_character_flag = test_2
+		name = EVTOPTB_io_imperial_event.4 
+		ai_chance = {
+			factor = 50
 			modifier = {
-				factor = 0.5
-				NOT = { reverse_opinion = { who = FROM value = -25 } }
+				factor = 0
+				event_target:io_dismissed_governor = {
+					OR = {
+						among_most_powerful_vassals = 5
+						relative_power_to_liege = 0.25
+						relative_income_to_liege = 0.5
+						has_job_title = yes
+					}
+				}
 			}
-			modifier = {
-				factor = 0.5
-				NOT = { reverse_opinion = { who = FROM value = -50 } }
-			}
-			modifier = {
-				factor = 1.2
-				opinion = { who = FROM value = 20 }
-			}
-			modifier = {
-				factor = 1.2
-				opinion = { who = FROM value = 40 }
-			}
-			modifier = {
-				factor = 1.5
-				reverse_opinion = { who = FROM value = 25 }
-			}
-			modifier = {
-				factor = 1.5
-				reverse_opinion = { who = FROM value = 50 }
-			}
-			modifier = {
-				factor = 2.0
-				holds_favor_on = FROM
-			}
+			is_bad_intrigue_character_score = yes
+		}
+		event_target:io_dismissed_governor = {
+			letter_event = {id = io_imperial_event.6} #Vassal is informed that his favor offer has been declined
+		}
+	}
+
+	
+}
+
+letter_event = { #Vassal is informed that his favor offer has been accepted
+	id = io_imperial_event.5
+	desc = EVTDESC_io_imperial_event.5
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_attempted_to_fire_me}
+		}
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
+		}
+	}
+	option = {#Excellent
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.5
+		ai_chance = {
+			factor = 100
+			
+		}
+		event_target:io_dismissed_governor = {
+			reverse_add_favor = event_target:io_liege
 		}
 	}
 }
+
+letter_event = { #Vassal is informed that his favor offer has been declined
+	id = io_imperial_event.6
+	desc = EVTDESC_io_imperial_event.6
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_attempted_to_fire_me}
+		}
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
+		}
+	}
+	option = {# Accept the decision
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.6
+		ai_chance = {
+			factor = 50
+			io_will_accept_decision_score = yes
+		}
+		event_target:io_liege = {
+			letter_event = {id = io_imperial_event.3 days = 3}
+		}
+	}
+
+	option = {# Offer bribe
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.6
+		trigger = {
+			is_adult = yes
+			scaled_wealth = 1.0
+			wealth = 100
+			NOR = {
+				is_incapable = yes
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_accepted_bribe_offer }
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_bribe_offer }
+			}
+		}
+		ai_chance = {
+			factor = 50
+			io_will_bribe_score = yes
+		}
+		event_target:io_liege = {
+			letter_event = {id = io_imperial_event.7 days = 3}
+		}
+	}
+
+	option = {# Refuse
+		set_character_flag = test_2
+		name = EVTOPTA_io_imperial_event.6
+		ai_chance = {
+			factor = 100
+			
+		}
+		event_target:io_liege = {
+			letter_event = {id = io_imperial_event.8 days = 3}
+		}
+	}
+}
+

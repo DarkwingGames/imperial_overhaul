@@ -15,7 +15,9 @@ targetted_decisions = {
 			
 		}
 		effect = {
-			####to be added
+			set_character_flag = test_flag_3
+			FROM = { prestige = -200 }
+			letter_event = {id = io_imperial_event.2}
 		}
 		revoke_allowed = {
 			always = no
