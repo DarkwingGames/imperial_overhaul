@@ -1,4 +1,4 @@
-namespace = io_imperial_event # Cleans up independent feudal ruler, can't be triggered because there is on on_independence on_action
+namespace = io_imperial_event # Cleans up independent feudal ruler, can't be triggered because there is no on_independence on_action
 
 character_event = {
 	id = io_imperial_event.1
@@ -12,7 +12,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 1
+		days = 0
 	}
 
 	immediate = {
@@ -27,7 +27,37 @@ character_event = {
 
 letter_event = {
 	id = io_imperial_event.2
-	desc = EVTDESC_io_imperial_event.2
+	desc = {
+		trigger = {#reuse this event with different triggered descriptions
+			NOT = {#default, when first sending the dismissal
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_bribe_offer }
+			}
+			NOT = {
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_favor_offer }
+			}
+			
+		}
+		text = EVTDESC_default_io_imperial_event.2
+	}
+
+	desc = {
+		trigger = {#reuse this event with different triggered descriptions
+			#second try
+			has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_favor_offer }
+			has_character_flag = io_refused_favor_flag
+		}
+		text = EVTDESC_refused_favor_io_imperial_event.2
+	}
+
+	desc = {
+		trigger = {#reuse this event with different triggered descriptions
+			#second try 
+			has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_bribe_offer }
+			has_character_flag = io_refused_bribe_flag
+		}
+		text = EVTDESC_refused_bribe_io_imperial_event.2
+	}
+		
 	only_playable = yes
 	is_triggered_only = yes
 
@@ -35,35 +65,37 @@ letter_event = {
 		
 	}
 	immediate = {
-		set_character_flag = test_1
-		save_event_target_as = io_dismissed_governor
-		liege = {
-			save_event_target_as = io_liege
-		}
-		primary_title = {
-			save_event_target_as = io_primary_title
-		}
-		if = {
-			limit = {
+		
+			set_character_flag = io_being_dismissed
+			save_event_target_as = io_dismissed_governor
+			liege = {
+				save_event_target_as = io_liege
+			}
+			primary_title = {
+				save_event_target_as = io_primary_title
+			}
+			if = {
+				limit = {
+					player_heir = {
+						NOT = {character = current_heir}
+					}
+				}
 				player_heir = {
-					NOT = {character = current_heir}
+					save_event_target_as = io_player_heir
 				}
 			}
-			player_heir = {
-				save_event_target_as = io_player_heir
+			current_heir = {
+				save_event_target_as = io_current_heir
 			}
-		}
-		current_heir = {
-			save_event_target_as = io_current_heir
-		}
+			set_character_flag = fffffff
 		
 	}
+
 	option = {
-		set_character_flag = test_2
 		name = EVTOPTA_io_imperial_event.2 # Accept
 		ai_chance = {
-			factor = 50
-			io_will_accept_decision_score = yes
+			factor = 100
+			#io_will_accept_decision_score = yes
 		}
 		event_target:io_liege = {
 			letter_event = {id = io_imperial_event.3 days = 3 tooltip = ACCEPT} #inform liege
@@ -92,17 +124,42 @@ letter_event = {
 					learning = 8
 				}
 			}
-			
+			io_will_accept_decision_score = yes
 			is_good_intrigue_character_score = yes
-		
+		}
 		event_target:io_liege = {
 			letter_event = { id = io_imperial_event.4 days = 3 tooltip = OFFER_FAVOR }# Send offer to liege
 		}
 	}
+
+	option = {# Offer bribe
 	
+		name = EVTOPTC_io_imperial_event.2
+		trigger = {
+			is_adult = yes
+			scaled_wealth = 1.0
+			wealth = 100
+			NOR = {
+				is_incapable = yes
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_accepted_bribe_offer }
+				has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_bribe_offer }
+			}
+		}
+		ai_chance = {
+			factor = 50
+			io_will_accept_decision_score = yes
+			io_will_bribe_score = yes
+		}
+		set_variable = {which = bribe value = 1}
+		export_to_variable = {which = bribe value = {scaled_wealth = {value = 1.0 min = 100}}}
+		#tooltip = {transfer_scaled_wealth = { value = -1.0 min = 100 to = event_target:io_liege}}
+		event_target:io_liege = {
+			letter_event = {id = io_imperial_event.6 days = 3} # Send offer to liege 
+		}
+	}	
 }
 
-letter_event = {#Liege is informed
+letter_event = {#Vassal has accepted, Liege is informed
 	id = io_imperial_event.3
 	desc = EVTDESC_io_imperial_event.3
 	only_playable = yes
@@ -113,17 +170,21 @@ letter_event = {#Liege is informed
 	}
 	immediate = {
 		event_target:io_dismissed_governor = {
+			clr_character_flag = io_being_dismissed
+			clr_character_flag = io_refused_bribe_flag
+			clr_character_flag = io_refused_favor_flag
 			opinion = {who = event_target:io_liege modifier = io_fired_me}
 		}
 	}
 	option = {
 		set_character_flag = test_2
-		name = EVTOPTA_io_imperial_event.3 #Excellent
+		name = EXCELLENT #Excellent
 		ai_chance = {
 			factor = 100
 			
 		}
 		event_target:io_dismissed_governor = {# Fire governor, distribute claims
+			
 			if = {
 				limit = {num_of_duke_titles == 1}
 				event_target:io_primary_title = {
@@ -184,10 +245,12 @@ letter_event = { #Liege recieves favor offer
 		name = EVTOPTA_io_imperial_event.4 
 		ai_chance = {
 			factor = 50
+			io_will_accept_decision_score = yes
 			is_good_intrigue_character_score = yes
 		}
 		tooltip = { add_favor = event_target:io_dismissed_governor }
 		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
 			letter_event = {id = io_imperial_event.5} #Vassal is informed that his favor offer has been accepted
 		}
 	}
@@ -211,11 +274,12 @@ letter_event = { #Liege recieves favor offer
 			is_bad_intrigue_character_score = yes
 		}
 		event_target:io_dismissed_governor = {
-			letter_event = {id = io_imperial_event.6} #Vassal is informed that his favor offer has been declined
+			clr_character_flag = io_refused_bribe_flag
+			set_character_flag = io_refused_favor_flag
+			opinion = {who = event_target:io_liege modifier = io_refused_favor_offer}
+			letter_event = {id = io_imperial_event.2} #Vassal is informed that his favor offer has been declined
 		}
 	}
-
-	
 }
 
 letter_event = { #Vassal is informed that his favor offer has been accepted
@@ -228,16 +292,17 @@ letter_event = { #Vassal is informed that his favor offer has been accepted
 		
 	}
 	immediate = {
+	
 		event_target:io_dismissed_governor = {
+			clr_character_flag = io_being_dismissed
+			clr_character_flag = io_refused_bribe_flag
+			clr_character_flag = io_refused_favor_flag
 			opinion = {who = event_target:io_liege modifier = io_attempted_to_fire_me}
-		}
-		event_target:io_dismissed_governor = {
-			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
 		}
 	}
 	option = {#Excellent
 		set_character_flag = test_2
-		name = EVTOPTA_io_imperial_event.5
+		name = EXCELLENT
 		ai_chance = {
 			factor = 100
 			
@@ -248,7 +313,9 @@ letter_event = { #Vassal is informed that his favor offer has been accepted
 	}
 }
 
-letter_event = { #Vassal is informed that his favor offer has been declined
+#Liege recieves bribe offer
+
+letter_event = { #Liege recieves bribe offer
 	id = io_imperial_event.6
 	desc = EVTDESC_io_imperial_event.6
 	only_playable = yes
@@ -258,56 +325,71 @@ letter_event = { #Vassal is informed that his favor offer has been declined
 		
 	}
 	immediate = {
-		event_target:io_dismissed_governor = {
-			opinion = {who = event_target:io_liege modifier = io_attempted_to_fire_me}
-		}
-		event_target:io_dismissed_governor = {
-			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
-		}
+		
 	}
-	option = {# Accept the decision
+	option = {# Accept the offer
 		set_character_flag = test_2
-		name = EVTOPTA_io_imperial_event.6
+		name = EVTOPTA_io_imperial_event.6 
 		ai_chance = {
 			factor = 50
 			io_will_accept_decision_score = yes
+			io_will_accept_bribe_score = yes
 		}
-		event_target:io_liege = {
-			letter_event = {id = io_imperial_event.3 days = 3}
+		event_target:io_dismissed_governor = {
+			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
+			letter_event = {id = io_imperial_event.7} #Vassal is informed that his favor offer has been accepted
 		}
 	}
 
-	option = {# Offer bribe
+	option = {#Refuse the offer
 		set_character_flag = test_2
-		name = EVTOPTA_io_imperial_event.6
-		trigger = {
-			is_adult = yes
-			scaled_wealth = 1.0
-			wealth = 100
-			NOR = {
-				is_incapable = yes
-				has_opinion_modifier = { who = event_target:io_liege modifier = io_accepted_bribe_offer }
-				has_opinion_modifier = { who = event_target:io_liege modifier = io_refused_bribe_offer }
-			}
-		}
+		name = EVTOPTB_io_imperial_event.6 
 		ai_chance = {
 			factor = 50
-			io_will_bribe_score = yes
+			modifier = {
+				factor = 0.1
+				event_target:io_dismissed_governor = {
+					relative_income_to_liege = 0.5
+				}
+			}
+			is_bad_intrigue_character_score = yes
 		}
-		event_target:io_liege = {
-			letter_event = {id = io_imperial_event.7 days = 3}
+		event_target:io_dismissed_governor = {
+			clr_character_flag = io_refused_favor_flag
+			set_character_flag = io_refused_bribe_flag
+			opinion = {who = event_target:io_liege modifier = io_refused_favor_offer}
+			letter_event = {id = io_imperial_event.2} #Vassal is informed that his favor offer has been declined
 		}
 	}
+}
 
-	option = {# Refuse
+letter_event = { #Vassal is informed that his bribe offer has been accepted
+	id = io_imperial_event.7
+	desc = EVTDESC_io_imperial_event.7
+	only_playable = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+	
+		event_target:io_dismissed_governor = {
+			clr_character_flag = io_being_dismissed
+			clr_character_flag = io_refused_bribe_flag
+			clr_character_flag = io_refused_favor_flag
+			opinion = {who = event_target:io_liege modifier = io_attempted_to_fire_me}
+		}
+	}
+	option = {#Excellent
 		set_character_flag = test_2
-		name = EVTOPTA_io_imperial_event.6
+		name = EXCELLENT
 		ai_chance = {
 			factor = 100
 			
 		}
-		event_target:io_liege = {
-			letter_event = {id = io_imperial_event.8 days = 3}
+		event_target:io_dismissed_governor = {
+			transfer_scaled_wealth = { value = 1.0 min = 100 to = event_target:io_liege}
 		}
 	}
 }

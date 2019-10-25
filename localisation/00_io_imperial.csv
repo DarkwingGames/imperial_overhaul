@@ -13,26 +13,36 @@ io_grant_title_desc_long;Grant one of your landed titles to another character. T
 io_grant_title_text_1;Grant the §Y[ThirdPartyTitle.GetFullName]§W to §Y[Root.GetTitledFirstName]§W;;;;;;;;;x
 00_dismiss_governor;Dismiss Governor;;;;;;;;;x
 00_dismiss_governor_desc;Attempt to dismiss §Y[Root.GetTitledName]§! from all held titles and offices. \nThis will lower [This.GetHerHis] opinion §R-60§! and the opinion of other members of [This.GetHerHis] dynasty by §R-15§!. \nIf [This.GetSheHe] chooses to refuse, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
-EVTDESC_io_imperial_event.2;To my loyal subject [io_dismissed_governor.GetBestName],\nI am afraid I must ask you to lay down command of the [io_primary_title.GetFullName]. [io_current_heir.GetBestName] has been chosen as your successor and will rule the [io_primary_title.GetFullName] from now on. For the good of the realm, I hope you accept this decision.\n\nSincerely,\n[From.GetBestName];;;;;;;;;x
+EVTDESC_default_io_imperial_event.2;To my loyal subject [io_dismissed_governor.GetBestName],\nI am afraid I must ask you to lay down command of the [io_primary_title.GetFullName]. [io_current_heir.GetBestName] has been chosen as your successor and will rule the [io_primary_title.GetFullName] from now on. For the good of the realm, I hope you accept this decision.\n\nSincerely,\n[From.GetBestName];;;;;;;;;x
+EVTDESC_EVTDESC_refused_bribe_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\nYou cannot buy me like a common merchant. If you have nothing else to offer, take your money and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
+EVTDESC_EVTDESC_refused_favor_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\nI would rather accept a favor from a snake than from you. If you have nothing else to offer, take your schemes and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
 EVTOPTA_io_imperial_event.2;It has been an honor to serve.;;;;;;;;;x
-EVTOPTB_io_imperial_event.2;A gift of gold shall make him reconsider.;;;;;;;;;x
-EVTOPTC_io_imperial_event.2;I will offer him a favor.;;;;;;;;;x
+EVTOPTB_io_imperial_event.2;I will offer him a favor.;;;;;;;;;x
+EVTOPTC_io_imperial_event.2;A gift of gold shall make him reconsider.;;;;;;;;;x
 EVTOPTD_io_imperial_event.2;I will not give up what is rightfully mine!;;;;;;;;;x
 
 EVTDESC_io_imperial_event.3;[io_liege.PrimaryTitle.GetFOA],\n\nEven though it grieves me greatly, I will accept your decision and lay down command of the [io_primary_title.GetFullName]. It has been an honor to serve the the realm. \nSincerely,\n[From.GetBestName];;;;;;;;;x
-EVTOPTA_io_imperial_event.3;Excellent.;;;;;;;;;x
+
 
 EVTDESC_io_imperial_event.4;[io_liege.PrimaryTitle.GetFOA]\n\nEven though you have every right to decide who is best fit to rule the [io_primary_title.GetFullName], I still hope that there is a way to retain my position. I am an influential [io_dismissed_governor.GetManWoman], after all, and would consider it a personal favor - one you might have use of in the future.\nSincerely,\n[From.GetBestName];;;;;;;;;x
-EVTOPTA_io_imperial_event.4;Very well. For a favor, [io_dismissed_governor.GetSheHe] may keep his position.
+EVTOPTA_io_imperial_event.4;Very well. For a favor, [io_dismissed_governor.GetSheHe] may keep his position.;;;;;;;;;x
 EVTOPTB_io_imperial_event.4;I have no need of a favor from [io_dismissed_governor.GetHerHim];;;;;;;;;x
 
+EVTDESC_accepted_bribe_io_imperial_event.5;To [io_dismissed_governor.GetTitledFirstName],\nYour proposal has merit and I hereby accept your offer. You may continue to rule the [io_primary_title.GetFullName] in exchange for a favor.\n\nSincerely,\n[From.GetBestName]
 
-EVTDESC_io_imperial_event.5;To the [GetFromRootCompliment] [io_dismissed_governor.GetTitledFirstName],\nI hereby accept your offer. You may continue to rule the [io_primary_title.GetFullName] in exchange for a favor.\n\nSincerely,\n[From.GetBestName]
-EVTOPTA_io_imperial_event.5;Excellent.;;;;;;;;;x
+EVTDESC_io_imperial_event.6;[io_liege.PrimaryTitle.GetFOA]\n\nEven though you have every right to decide who is best fit to rule the [io_primary_title.GetFullName], I still hope that there is a way to retain my position. I am a wealthy [io_dismissed_governor.GetManWoman], after all, and I would be willing to make a generous donation to your treasury if you were to reconsider.\nSincerely,\n[From.GetBestName];;;;;;;;;x
+EVTOPTA_io_imperial_event.6;Very well. For [bribe.GetValue]¤, [io_dismissed_governor.GetSheHe] may keep his position.;;;;;;;;;x
+EVTOPTB_io_imperial_event.6;Do I look like a merchant to [io_dismissed_governor.GetHerHim]?;;;;;;;;;x
+
+EVTDESC_accepted_favor_io_imperial_event.7;To [io_dismissed_governor.GetTitledFirstName],\nYour proposal has merit and I hereby accept your offer. You may continue to rule the [io_primary_title.GetFullName] in exchange for a donation of [bribe.GetValue]¤.\n\nSincerely,\n[From.GetBestName];;;;;;;;;x
+
 ACCEPT;You accept [io_liege.GetTitledFirstNameNoRegnal]'s decision;;;;;;;;;x
 OFFER_GIFT;[io_liege.GetTitledFirstNameNoRegnal] is offered a gift;;;;;;;;;x
 OFFER_FAVOR;[io_liege.GetTitledFirstNameNoRegnal] is offered a favor;;;;;;;;;x
+EXCELLENT;Excellent;;;;;;;;;x
 io_fired_me;Dismissed;;;;;;;;;x
 io_attempted_to_fire_me;Attempted Dismissal;;;;;;;;;x
 io_accepted_favor_offer;Accepted Favor;;;;;;;;;x
 io_accepted_bribe_offer;Accepted Gift;;;;;;;;;x
+io_refused_favor_offer;Refused Favor;;;;;;;;;x
+io_refused_bribe_offer;Refused Gift;;;;;;;;;x

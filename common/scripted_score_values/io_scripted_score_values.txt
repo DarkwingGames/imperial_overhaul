@@ -97,6 +97,22 @@ io_will_bribe_score = {
         trait = deceitful
     }
     modifier = {
+        factor = 2
+        scaled_wealth = 2.0
+        wealth = 200
+    }
+    modifier = {
+        factor = 2
+        scaled_wealth = 3.0
+        wealth = 300
+    }
+
+    modifier = {
+        factor = 0.75
+        is_dumb_trigger = yes
+    }
+    
+    modifier = {
         factor = 1.2
         FROM = {
             trait = gluttonous
@@ -118,22 +134,39 @@ io_will_bribe_score = {
         
     }
     modifier = {
-        factor = 1.5
+        factor = 1.2
         FROM = {trait = arbitrary} 
     }
     modifier = {
-        factor = 0.75
-        is_dumb_trigger = yes
-	}
+        factor = 1.5 #Liege is broke
+        FROM = {wealth <= 0} 
+    }
+}
 
+io_will_accept_bribe_score = {
     modifier = {
-        factor = 2
-        scaled_wealth = 2.0
-        wealth = 200
+        factor = 2.0
+        trait = greedy
     }
     modifier = {
-        factor = 2
-        scaled_wealth = 3.0
-        wealth = 300
+        factor = 1.5
+        trait = gluttonous
     }
+    modifier = {
+        factor = 1.5
+        trait = envious
+    }
+    modifier = {
+        factor = 1.5
+        trait = deceitful
+    }
+    modifier = {
+        factor = 1.5
+        trait = arbitrary
+    }
+    modifier = {
+        factor = 1.5
+        wealth <= 0
+    }
+     
 }
