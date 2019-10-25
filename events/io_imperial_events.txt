@@ -87,18 +87,19 @@ letter_event = {
 			current_heir = {
 				save_event_target_as = io_current_heir
 			}
-			set_character_flag = fffffff
+			
 		
 	}
 
 	option = {
 		name = EVTOPTA_io_imperial_event.2 # Accept
 		ai_chance = {
-			factor = 100
-			#io_will_accept_decision_score = yes
+			factor = 0
+			io_will_accept_decision_score = yes
 		}
 		event_target:io_liege = {
 			letter_event = {id = io_imperial_event.3 days = 3 tooltip = ACCEPT} #inform liege
+			set_character_flag = fffffff
 		}
 	}
 	
@@ -116,7 +117,7 @@ letter_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0
 				NOR = {
@@ -129,16 +130,16 @@ letter_event = {
 		}
 		event_target:io_liege = {
 			letter_event = { id = io_imperial_event.4 days = 3 tooltip = OFFER_FAVOR }# Send offer to liege
+			set_character_flag = gfg
 		}
 	}
-
 	option = {# Offer bribe
 	
 		name = EVTOPTC_io_imperial_event.2
 		trigger = {
 			is_adult = yes
-			scaled_wealth = 1.0
-			wealth = 100
+			#scaled_wealth = 1.0
+			#wealth = 100
 			NOR = {
 				is_incapable = yes
 				has_opinion_modifier = { who = event_target:io_liege modifier = io_accepted_bribe_offer }
@@ -146,13 +147,28 @@ letter_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 100
 			io_will_accept_decision_score = yes
 			io_will_bribe_score = yes
 		}
-		set_variable = {which = bribe value = 1}
-		export_to_variable = {which = bribe value = {scaled_wealth = {value = 1.0 min = 100}}}
-		#tooltip = {transfer_scaled_wealth = { value = -1.0 min = 100 to = event_target:io_liege}}
+		hidden_tooltip = {
+			set_variable = {which = bribe value = 1}
+			export_to_variable = {
+				which = bribe 
+				value = {scaled_wealth = 1.0 min = 100}
+			}
+		}
+		
+		tooltip = {
+			show_scope_change = no
+			event_target:io_dismissed_governor = {
+				transfer_scaled_wealth = {
+					value = 1.0 
+					to = event_target:io_liege
+					min = 100 
+				}
+			}
+		}
 		event_target:io_liege = {
 			letter_event = {id = io_imperial_event.6 days = 3} # Send offer to liege 
 		}
@@ -177,16 +193,17 @@ letter_event = {#Vassal has accepted, Liege is informed
 		}
 	}
 	option = {
-		set_character_flag = test_2
+		
 		name = EXCELLENT #Excellent
 		ai_chance = {
 			factor = 100
 			
 		}
+		
 		event_target:io_dismissed_governor = {# Fire governor, distribute claims
-			
+		
 			if = {
-				limit = {num_of_duke_titles == 1}
+				limit = {num_of_duke_titles <= 1}
 				event_target:io_primary_title = {
 					capital_scope  = {
 						county = {
@@ -225,7 +242,6 @@ letter_event = {#Vassal has accepted, Liege is informed
 
 	}
 
-	
 }
 
 letter_event = { #Liege recieves favor offer
@@ -241,7 +257,7 @@ letter_event = { #Liege recieves favor offer
 		
 	}
 	option = {# Accept the offer
-		set_character_flag = test_2
+		
 		name = EVTOPTA_io_imperial_event.4 
 		ai_chance = {
 			factor = 50
@@ -256,7 +272,7 @@ letter_event = { #Liege recieves favor offer
 	}
 
 	option = {#Refuse the offer
-		set_character_flag = test_2
+		
 		name = EVTOPTB_io_imperial_event.4 
 		ai_chance = {
 			factor = 50
@@ -336,7 +352,7 @@ letter_event = { #Liege recieves bribe offer
 			io_will_accept_bribe_score = yes
 		}
 		event_target:io_dismissed_governor = {
-			opinion = {who = event_target:io_liege modifier = io_accepted_favor_offer}
+			opinion = {who = event_target:io_liege modifier = io_accepted_bribe_offer}
 			letter_event = {id = io_imperial_event.7} #Vassal is informed that his favor offer has been accepted
 		}
 	}

@@ -3,7 +3,7 @@ io_fired_me = {
 }
 
 io_attempted_to_fire_me = {
-	opinion = -15
+	opinion = -30
 	years = 10
 }
 
@@ -18,11 +18,21 @@ io_accepted_bribe_offer = {
 }
 
 io_accepted_favor_offer = {
+	opinion = 5
+	years = 10
+}
+
+io_accepted_bribe_offer = {
+	opinion = 5
+	years = 10
+}
+
+io_refused_favor_offer = {
 	opinion = -10
 	years = 10
 }
 
-io_accepted_bribe_offer = {
+io_refused_bribe_offer = {
 	opinion = -10
 	years = 10
 }
