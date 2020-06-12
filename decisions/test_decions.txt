@@ -1,0 +1,27 @@
+decisions {
+	test_decision_01 = {
+		potential = {
+			always = yes
+		}
+		effect = {
+			
+			character_event = {
+				id = io_debug_event.1
+			}
+			
+		}
+		
+	}
+
+	test_decision_02 = {
+		potential = {
+			always = yes
+		}
+		effect = {
+			create_family_palace = yes
+			
+		}
+		
+	}
+
+}
