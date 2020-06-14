@@ -4,17 +4,17 @@ GRANT_LANDED_TITLE_INTERACTION_LONG_DESC;[Recipient.CheckImperialGrantTitleDescL
 GRANT_LANDED_TITLE_INTERACTION_1;[Recipient.CheckImperialGrantTitleText1], increasing [Recipient.GetPossPronoun] opinion of you by §G$OPINION$§! and lowering your threat by §G$INFAMY$%§!.;;;;;;;;;x
 GRANT_LANDED_TITLE_INTERACTION_6;[Recipient.CheckImperialGrantTitleText1], increasing [Recipient.GetPossPronoun] opinion of you by §G$OPINION$§! and lowering your threat by §G$INFAMY$%§!.;;;;;;;;;x
 io_appoint_governor;Appoint Governor;;;;;;;;;x
-io_appoint_governor_desc;Appoint this character to govern a part of our realm;;;;;;;;;x
-io_appoint_governor_desc_long;Appoint this character to govern a part of our realm. This will significantly improve their opinion of you.;;;;;;;;;x
+io_appoint_governor_desc;Appoint this character to govern a part of your realm;;;;;;;;;x
+io_appoint_governor_desc_long;Appoint this character to govern a part of your realm. This will significantly improve their opinion of you.;;;;;;;;;x
 io_appoint_governor_text_1;Appoint §Y[Root.GetTitledFirstName]§W as §Y[This.GetRulerTitle] of [ThirdPartyTitle.GetBaseName]§W;;;;;;;;;x
 io_grant_title;Grant Landed Title;;;;;;;;;x
 io_grant_title_desc;Grant a landed title to the character;;;;;;;;;x
 io_grant_title_desc_long;Grant one of your landed titles to another character. This will significantly improve their opinion of you.;;;;;;;;;x
 io_grant_title_text_1;Grant the §Y[ThirdPartyTitle.GetFullName]§W to §Y[Root.GetTitledFirstName]§W;;;;;;;;;x
 00_dismiss_governor;Dismiss Governor;;;;;;;;;x
-00_dismiss_governor_desc;Attempt to dismiss §Y[Root.GetTitledName]§! from all held titles and offices. \nThis will lower [This.GetHerHis] opinion §R-60§! and the opinion of other members of [This.GetHerHis] dynasty by §R-15§!. \nIf [This.GetSheHe] chooses to refuse, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
+00_dismiss_governor_desc;Dismiss §Y[Root.GetTitledFirstName]§! from his position as §Y[Root.PrimaryTitle.GetRulerTitle] of [Root.PrimaryTitle.GetBaseName]§!\nThis will anger [This.GetHerHim] (§R-60§!) and other members of [This.GetHerHis] dynasty (§R-15§!). \n If [This.GetSheHe] chooses to refuses, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
 EVTDESC_default_io_imperial_event.2;To my loyal subject [io_dismissed_governor.GetBestName],\nI am afraid I must ask you to lay down command of the [io_primary_title.GetFullName]. [io_current_heir.GetBestName] has been chosen as your successor and will rule the [io_primary_title.GetFullName] from now on. For the good of the realm, I hope you accept this decision.\n\nSincerely,\n[From.GetBestName];;;;;;;;;x
-EVTDESC_EVTDESC_refused_bribe_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\nYou cannot buy me like a common merchant. If you have nothing else to offer, take your money and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
+EVTDESC_EVTDESC_refused_bribe_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\n Do you think you can buy me like a common merchant? If you have nothing else to offer, take your money and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
 EVTDESC_EVTDESC_refused_favor_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\nI would rather accept a favor from a snake. If you have nothing else to offer, take your schemes and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
 EVTOPTA_io_imperial_event.2;It has been an honor to serve.;;;;;;;;;x
 EVTOPTB_io_imperial_event.2;I will offer him a favor.;;;;;;;;;x
@@ -46,3 +46,15 @@ io_accepted_favor_offer;Accepted Favor;;;;;;;;;x
 io_accepted_bribe_offer;Accepted Gift;;;;;;;;;x
 io_refused_favor_offer;Refused Favor;;;;;;;;;x
 io_refused_bribe_offer;Refused Gift;;;;;;;;;x
+
+romanimperial_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
+romanimperial_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
+romanimperial_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
+romanimperial_king_female_byzantine;Exarchessa;Exarque;Exarchessa;;Exarca;;;;;;;;;x
+
+province_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
+province_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
+province_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
+province_king_female_byzantine;Exarchessa;Exarque;Exarchessa;;Exarca;;;;;;;;;x
+
+province_duchy_byzantine;Theme

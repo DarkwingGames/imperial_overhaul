@@ -1,24 +1,87 @@
-# -*- ck2.scripted_score_values -*-
+#Many thanks to Delnar_Ersike and zjistark from the EMF team for allowing me to use their voting scores as a base for this
 
 # Used in succession_voting rules to avoid having to sync changes across multiple rules
 
 # Basic modifiers used by pretty much every succession voting rule
 io_succession_voting_elector_selection_default_head = {
-	additive_modifier = {
-		value = -1000
+	#additive_modifier = {
+	#	value = -1000
+	#	FROMFROM = {
+	#		holder_scope = {
+	#			io_is_imperial_trigger = no
+	#		}
+	#		OR = {
+	#			has_holder = no
+	#			NOR = { #Either title is higher than Duke-tier, or must be primary.
+	#				higher_tier_than = DUKE
+	#				holder_scope = { primary_title = { title = PREVPREV } }
+	#			}
+	#		}
+	#	}
+	#}
+	additive_modifier = { # Current ruler is always an elector.
+		value = 500
+		FROMFROM = { holder = ROOT }
+	}
+}
+
+# Modifiers used fairly commonly to prioritize by culture and religion when there would be too many electors
+io_succession_voting_elector_selection_default_prioritization = {
+	additive_modifier = { # Prioritization based on culture
+		value = -2
+		FROMFROM = { holder_scope = { NOT = { culture = ROOT } } }
+	}
+	additive_modifier = { # Prioritization based on culture group
+		value = -2
+		FROMFROM = { holder_scope = { NOT = { culture_group = ROOT } } }
+	}
+	additive_modifier = { # Prioritization based on religion
+		value = -2
 		FROMFROM = {
-			OR = {
-				has_holder = no
-				NOR = { #Either title is higher than Duke-tier, or must be primary.
-					higher_tier_than = DUKE
-					holder_scope = { primary_title = { title = PREVPREV } }
+			holder_scope = {
+				is_heretic = no
+				NOR = {
+					religion = ROOT
+					religion_scope = {
+						trigger_if = {
+							limit = { has_religion_features = yes }
+							has_religion_feature = religion_cosmopolitan
+						}
+						trigger_else = {
+							religion = hellenic_pagan_reformed
+						}
+					}
+					AND = {
+						has_random_religions = no
+						religion = hellenic_pagan
+					}
 				}
 			}
 		}
 	}
-	additive_modifier = { # Current ruler is always an elector.
-		value = 500
-		FROMFROM = { holder = ROOT }
+	additive_modifier = { # Prioritization based on religion group
+		value = -2
+		FROMFROM = {
+			holder_scope = {
+				NOR = {
+					religion_group = ROOT
+					emf_syncretized_religion_with_ROOT = yes
+					religion_scope = {
+						trigger_if = {
+							limit = { has_religion_features = yes }
+							has_religion_feature = religion_cosmopolitan
+						}
+						trigger_else = {
+							religion = hellenic_pagan_reformed
+						}
+					}
+					AND = {
+						has_random_religions = no
+						religion = hellenic_pagan
+					}
+				}
+			}
+		}
 	}
 }
 
