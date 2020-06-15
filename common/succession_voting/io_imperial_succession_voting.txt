@@ -14,11 +14,15 @@ imperial_appointment = {
 			value = 500
 			FROMFROM = { holder = ROOT }
 		}
-		additive_modifier = {
-			value = 10 
-			ROOT = {
-				de_facto_liege = FROMFROM
-			}
+		additive_modifier = {# so is his liege
+			value = 500 
+			FROMFROM = {
+				holder_scope = {
+					liege = {
+						character = ROOT
+					}
+				}
+			}	
 		}
 		additive_modifier = { #Then the Councilors.
 			value = 10
@@ -42,24 +46,20 @@ imperial_appointment = {
 	}
 	elector_vote_strength = {
 		days = 5 # 1 elector = 5 votes.
-		additive_modifier = { #The Emperor's word is worth more than anybody else's by far.
+		additive_modifier = { #The current holder's word is worth a lot
 			value = 195
 			localisation_key = tooltip_imperial_vote_strength_emperor_influence
 			FROMFROM = { holder = ROOT }
 		}
-		additive_modifier = { #And even more so if they're a strong basileus.
-			value = 35
-			localisation_key = tooltip_imperial_vote_strength_emperor_strong_basileus
-			ai = no
-			FROMFROM = { holder = ROOT }
-			trait = strong_basileus
-		}
-		additive_modifier = { #And even more so if they're a strong basileus.
-			value = 100
-			localisation_key = tooltip_imperial_vote_strength_emperor_strong_basileus
-			ai = yes
-			FROMFROM = { holder = ROOT }
-			trait = strong_basileus
+		additive_modifier = {# so is his liege's
+			value = 195
+			FROMFROM = {
+				holder_scope = {
+					liege = {
+						character = ROOT
+					}
+				}
+			}	
 		}
 		additive_modifier = { #...Yet it can be reduced in certain circumstances.
 			value = -15
@@ -185,7 +185,7 @@ imperial_appointment = {
 		additive_modifier = { #Regency shifts some power to regent
 			value = 25
 			localisation_key = tooltip_imperial_vote_strength_elector_regent
-			vassal_of = FROMFROM
+			
 			FROMFROM = {
 				holder_scope = {
 					NOT = { character = ROOT }
@@ -197,7 +197,7 @@ imperial_appointment = {
 		additive_modifier = { #Powerful people can pull strings.
 			value = 5
 			localisation_key = tooltip_imperial_vote_strength_elector_tier
-			vassal_of = FROMFROM 
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			higher_tier_than = BARON
 			lower_tier_than = DUKE
@@ -205,7 +205,7 @@ imperial_appointment = {
 		additive_modifier = { #Powerful people can pull strings.
 			value = 10
 			localisation_key = tooltip_imperial_vote_strength_elector_high_tier
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			higher_tier_than = COUNT
 			lower_tier_than = KING
@@ -213,42 +213,42 @@ imperial_appointment = {
 		additive_modifier = { #Powerful people can pull strings.
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_elector_high_tier
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			higher_tier_than = DUKE
 		}
 		additive_modifier = { #Byzantine minor titles not so minor after all...
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_elector_despot
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			has_minor_title = title_despot
 		}
 		additive_modifier = { #Byzantine minor titles not so minor after all...
 			value = 5
 			localisation_key = tooltip_imperial_vote_strength_elector_sebastokrator
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			has_minor_title = title_sebastokrator
 		}
 		additive_modifier = { #Byzantine minor titles not so minor after all...
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_elector_caesar
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			has_minor_title = title_caesar
 		}
 		additive_modifier = { #Byzantine minor titles not so minor after all...
 			value = 10
 			localisation_key = tooltip_imperial_vote_strength_elector_kouropalates
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			has_minor_title = title_kouropalates
 		}
 		additive_modifier = { #Byzantine minor titles not so minor after all...
 			value = 5
 			localisation_key = tooltip_imperial_vote_strength_elector_anthypatos
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			has_minor_title = title_anthypatos
 		}
@@ -256,7 +256,7 @@ imperial_appointment = {
 		additive_modifier = { #The less commanders you have appointed, the more influential the remaining ones are.
 			value = 5
 			localisation_key = tooltip_imperial_vote_strength_no_competition
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			FROMFROM = {
 				holder_scope = {
@@ -280,7 +280,7 @@ imperial_appointment = {
 		additive_modifier = { #The less commanders you have appointed, the more influential the remaining ones are.
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_no_competition
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			FROMFROM = {
 				holder_scope = {
@@ -304,7 +304,7 @@ imperial_appointment = {
 		additive_modifier = { #The less commanders you have appointed, the more influential the remaining ones are.
 			value = 40
 			localisation_key = tooltip_imperial_vote_strength_no_competition
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			FROMFROM = {
 				holder_scope = {
@@ -328,7 +328,7 @@ imperial_appointment = {
 		additive_modifier = { #The less commanders you have appointed, the more influential the remaining ones are.
 			value = 90
 			localisation_key = tooltip_imperial_vote_strength_no_competition
-			vassal_of = FROMFROM
+			
 			NOT = { FROMFROM = { holder = ROOT } }
 			FROMFROM = {
 				holder_scope = {
@@ -348,7 +348,7 @@ imperial_appointment = {
 		additive_modifier = { #Councilor is also the head of the ruling religion.
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_chaplain_patriarch
-			vassal_of = FROMFROM
+			
 			FROMFROM = { holder_scope = { religion = ROOT } }
 			NOT = { FROMFROM = { holder = ROOT } }
 			primary_title = { controls_religion = yes }
@@ -356,7 +356,7 @@ imperial_appointment = {
 		additive_modifier = { #Spouse Bonus
 			value = 30
 			localisation_key = tooltip_imperial_vote_strength_spouse
-			vassal_of = FROMFROM
+			
 			FROMFROM = { holder_scope = { is_married = ROOT } }
 			NOT = { FROMFROM = { holder = ROOT } }
 			is_main_spouse = yes
@@ -364,7 +364,7 @@ imperial_appointment = {
 		additive_modifier = { #Spouse Bonus
 			value = 15
 			localisation_key = tooltip_imperial_vote_strength_spouse
-			vassal_of = FROMFROM
+			
 			FROMFROM = { holder_scope = { is_married = ROOT } }
 			NOT = { FROMFROM = { holder = ROOT } }
 			is_main_spouse = no

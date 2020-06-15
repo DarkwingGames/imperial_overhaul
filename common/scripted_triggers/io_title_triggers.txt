@@ -1,0 +1,9 @@
+io_is_roman_empire = {
+	custom_tooltip = {
+		text = TT_IS_ROMAN_EMPIRE
+		OR = {
+			title = e_byzantium
+			title = e_roman_empire
+		}
+	}
+}

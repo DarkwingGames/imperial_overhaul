@@ -1,27 +1,20 @@
 decisions {
 	test_decision_01 = {
 		potential = {
-			always = yes
+			ai = no
 		}
 		effect = {
 			
-			character_event = {
-				id = io_debug_event.1
+			primary_title = {
+				add_law = {
+					law = succ_imperial_appointment
+					cooldown = no
+					opinion_effect = n0
+				}
 			}
 			
 		}
 		
 	}
-
-	test_decision_02 = {
-		potential = {
-			always = yes
-		}
-		effect = {
-			create_family_palace = yes
-			
-		}
-		
-	}
-
 }
+	

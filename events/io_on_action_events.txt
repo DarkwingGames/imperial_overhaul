@@ -22,11 +22,6 @@ character_event = { #Flag imperial characters, set titles nomadic to disallow re
 		set_character_flag = io_imperial_check
 		any_demesne_title = {
 			set_title_nomad = { title = THIS status = yes }
-			add_law = {
-				law = succ_imperial_appointment
-				cooldown = no
-				opinion_effect = no
-			} 
 		}
 		
 	}
