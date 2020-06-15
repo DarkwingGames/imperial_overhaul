@@ -1,0 +1,35 @@
+io_default_succession_law_potential_trigger = {
+	holder_scope = {
+				
+		starts_as_imperial_trigger = no
+		
+		is_merchant_republic = no
+		is_patrician = no
+
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+			independent = yes
+		}
+		NOR = {
+			any_liege = {
+				holy_order = yes
+			}
+			AND = {
+				io_is_imperial_trigger = yes
+				independent = no
+			}
+			
+		}
+		
+	}
+	OR = {
+		is_landless_type_title = no
+		is_tribal_type_title = yes
+		temporary = yes
+	}
+	
+	rebel = no
+	
+	is_primary_type_title = no
+}

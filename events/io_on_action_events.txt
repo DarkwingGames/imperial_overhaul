@@ -1,6 +1,6 @@
 namespace = io_on_action_event
 ########Fired on game start ##############
-character_event = { #Flag imperial characters, set titles nomadic to disallow revocation
+character_event = { #Flag imperial characters, set titles nomadic to disallow revocation, set Imperial appointment
 	id = io_on_action_event.1
 	hide_window = yes
 	only_playable = yes
@@ -21,7 +21,12 @@ character_event = { #Flag imperial characters, set titles nomadic to disallow re
 	immediate = {
 		set_character_flag = io_imperial_check
 		any_demesne_title = {
-			set_title_nomad = { title = THIS status = yes } 
+			set_title_nomad = { title = THIS status = yes }
+			add_law = {
+				law = succ_imperial_appointment
+				cooldown = no
+				opinion_effect = no
+			} 
 		}
 		
 	}

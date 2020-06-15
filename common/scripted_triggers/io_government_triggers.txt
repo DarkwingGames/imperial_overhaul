@@ -4,6 +4,7 @@ io_starts_as_imperial_trigger = {
 		primary_title = {
 			OR = {
 				title = e_byzantium
+				title = e_roman_empire
 				
 			}
 		}
@@ -48,3 +49,5 @@ io_is_imperial_trigger = {
 		
 	}
 }
+
+
