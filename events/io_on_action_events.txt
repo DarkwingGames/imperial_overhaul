@@ -23,10 +23,17 @@ character_event = { #Flag imperial characters, set titles nomadic to disallow re
 		any_demesne_title = {
 			set_title_nomad = { title = THIS status = yes }
 		}
+		primary_title = {
+			set_title_flag = prim_title
+		}
 		any_demesne_title = {
-			add_law = succ_imperial_appointment
-			cooldown = no
-			opinion_effect = no
+			#limit = {NOT = {has_title_flag = prim_title}}
+			add_law = {
+				law = succ_imperial_appointment
+				cooldown = no
+				opinion_effect = no
+			}
+			
 		}
 	}
 	

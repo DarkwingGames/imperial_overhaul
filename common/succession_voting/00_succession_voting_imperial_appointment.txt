@@ -1,0 +1,82 @@
+imperial_appointment = {
+	elector_selection = {
+		days = -5
+
+		additive_modifier = { # Title holder is always an Elector
+			value = 30
+
+			FROMFROM = {
+				holder_scope = {
+					character = ROOT
+				}
+			}
+		}
+
+		additive_modifier = { # his liege as well
+			value = 500
+			
+		}
+
+		#additive_modifier = { #lieges councillors + commanders too
+		#	value = 20
+		#	AND = {
+		#		FROMFROM = {
+		#			holder_scope = {
+		#				liege = {
+		#					any_courtier_or_vassal = {
+		#						io_is_elector = yes
+		#					}
+		#				}
+		#			}
+		#		}
+		#		
+		#	}
+			
+		#}
+	}
+
+
+	elector_vote_strength = {
+		days = 5
+
+		additive_modifier = {
+			value = 95
+			localisation_key = io_tooltip_imperial_current_ruler
+			FROMFROM = { holder = ROOT }
+		}
+
+		additive_modifier = {
+			value = 95
+			localisation_key = io_tooltip_imperial_liege
+			FROMFROM = {
+				holder_scope = {
+					liege = {
+						character = ROOT
+						NOT = {tier = EMPEROR}
+					}
+				}
+			}
+		}
+
+		additive_modifier = {
+			value = 95
+			localisation_key = io_tooltip_imperial_emperor
+			FROMFROM = {
+				holder_scope = {
+					liege = {
+						character = ROOT
+						tier = EMPEROR
+					}
+				}
+			}
+		}
+	}
+
+	candidate_vote_score = {
+		days = 0
+	}
+
+	candidate_trigger = {
+		dynasty = ROOT
+	}
+}

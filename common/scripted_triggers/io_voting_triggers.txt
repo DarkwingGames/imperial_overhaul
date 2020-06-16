@@ -1,10 +1,11 @@
-io_is_voter = {
+io_is_elector = {
 	custom_tooltip = {
-		#text = 
+		text = TT_is_elector
 		OR = {
 			is_voter = yes
 			is_councillor = yes
 			has_minor_title = yes
+			has_minor_title = title_commander
 		}
 	}
 }

@@ -1,0 +1,3 @@
+io_tooltip_imperial_current_ruler;§Y[Root.GetTitledFirstName]§! is the current §Y[FromFrom.GetRulerTitle] of [FromFrom.GetBaseName]§!;;;;;;;;;x
+io_tooltip_imperial_liege;§Y[Root.GetTitledFirstName]§! rules the [Root.PrimaryTitle.GetFullName] and is [FromFrom.Holder.GetTitledFirstName]'s §Yliege§!;;;;;;;;;x
+io_tooltip_imperial_emperor;§Y[Root.GetTitledFirstName]§! rules the [Root.PrimaryTitle.GetFullName];;;;;;;;;x

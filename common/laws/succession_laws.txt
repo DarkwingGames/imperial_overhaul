@@ -29,10 +29,10 @@ succession_laws = {
 		}
 		effect = {
 			succession = {
-				base_type = tanistry
+				base_type = feudal_elective
 				voting_rules = imperial_appointment
 			}
-			elective_voting_rules = imperial_appointment
+
 		}
 		revoke_allowed = {
 			always = no
@@ -796,6 +796,10 @@ succession_laws = {
 				}
 
 				NOR = {
+					AND = {
+						io_is_imperial_trigger = yes
+						independent = no
+					}
 					government = chinese_imperial_government
 					government = confucian_bureaucracy
 					government = muslim_government
@@ -952,7 +956,10 @@ succession_laws = {
                 }
 
                 NOR = {
-                    any_demesne_title = { is_vice_royalty = yes }
+                    AND = {
+						io_is_imperial_trigger = yes
+						independent = no
+					}
                     government = confucian_bureaucracy
                     government = muslim_government
                     government = order_government
@@ -1069,6 +1076,10 @@ succession_laws = {
 				}
 
 				NOR = {
+					AND = {
+						io_is_imperial_trigger = yes
+						independent = no
+					}
 					government = confucian_bureaucracy
 					government = order_government
 					government = roman_imperial_government

@@ -12,7 +12,7 @@ io_grant_title_desc;Grant a landed title to the character;;;;;;;;;x
 io_grant_title_desc_long;Grant one of your landed titles to another character. This will significantly improve their opinion of you.;;;;;;;;;x
 io_grant_title_text_1;Grant the §Y[ThirdPartyTitle.GetFullName]§W to §Y[Root.GetTitledFirstName]§W;;;;;;;;;x
 00_dismiss_governor;Dismiss Governor;;;;;;;;;x
-00_dismiss_governor_desc;Dismiss §Y[Root.GetTitledFirstName]§! from his position as §Y[Root.PrimaryTitle.GetRulerTitle] of [Root.PrimaryTitle.GetBaseName]§!\nThis will anger [This.GetHerHim] (§R-60§!) and other members of [This.GetHerHis] dynasty (§R-15§!). \n If [This.GetSheHe] chooses to refuses, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
+00_dismiss_governor_desc;Dismiss §Y[Root.GetTitledFirstName]§! from his position as §Y[Root.PrimaryTitle.GetRulerTitle] of [Root.PrimaryTitle.GetBaseName]§!.\nThis will anger [This.GetHerHim] (§R-60§!) and other members of [This.GetHerHis] dynasty (§R-15§!). \n If [This.GetSheHe] chooses to refuses, [This.GetSheHe] might try to negotiate or rebel.;;;;;;;;;x
 EVTDESC_default_io_imperial_event.2;To my loyal subject [io_dismissed_governor.GetBestName],\nI am afraid I must ask you to lay down command of the [io_primary_title.GetFullName]. [io_current_heir.GetBestName] has been chosen as your successor and will rule the [io_primary_title.GetFullName] from now on. For the good of the realm, I hope you accept this decision.\n\nSincerely,\n[From.GetBestName];;;;;;;;;x
 EVTDESC_EVTDESC_refused_bribe_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\n Do you think you can buy me like a common merchant? If you have nothing else to offer, take your money and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
 EVTDESC_EVTDESC_refused_favor_io_imperial_event.2;To the [GetFromRootInsult] [io_dismissed_governor.GetTitledFirstName],\nI would rather accept a favor from a snake. If you have nothing else to offer, take your schemes and whatever honor you have left and accept my decision - or face the consequences.\n\n[From.GetBestName];;;;;;;;;x
@@ -47,6 +47,9 @@ io_accepted_bribe_offer;Accepted Gift;;;;;;;;;x
 io_refused_favor_offer;Refused Favor;;;;;;;;;x
 io_refused_bribe_offer;Refused Gift;;;;;;;;;x
 
+imperial_appointment;Imperial Appointment;;;;;;;;;x
+succ_imperial_appointment;Imperial Appointment;;;;;;;;;x
+succ_imperial_appointment_desc;The successor to this title is appointed by the Emperor, his council and his commanders. The current title holder and other powerful members of the Imperial Court can also influence the appointment process. Each elector has a different voting strength, based on his prestige, minor titles and attributes, making some more influential than others. Viable candiates are members of the Imperial court and the current ruler's court, close relatives of the current ruler, and claimants.;;;;;;;;;x 
 romanimperial_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
 romanimperial_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
 romanimperial_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
