@@ -1,0 +1,153 @@
+law_groups = {
+	appointment_law = {
+		law_type = realm
+	}
+}
+
+laws = {
+	delegated_appointment = {
+		group = appointment_law
+		allow = {
+			has_law = duchy_appointment
+		}
+		potential = {
+			io_is_imperial_trigger = yes
+			independent = yes
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = duchy_appointment
+				revoke_law = county_appointment
+				holder_scope = {
+					any_realm_title = {
+						clr_title_flag = ignored_by@PREV				
+					}
+					any_realm_title = {
+						limit = {
+							lower_tier_than = KING
+							NOT = {liege = PREVPREV}
+						}
+						set_title_flag = ignored_by@PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_law = {duchy_appointment}
+				}
+				custom_tooltip = {
+					text = TT_io_revoke_duchy_appointment
+	
+				}
+			}
+			if = {
+				limit = {
+					has_law = {duchy_appointment}
+				}
+				custom_tooltip = {
+					text = TT_io_kingddom_appointment
+	
+				}
+			}
+		}
+	}
+
+	duchy_appointment = {
+		group = appointment_law
+		allow = {
+			OR = {
+				has_law = delegated_appointment
+				has_law = county_appointment
+			}
+		}
+		potential = {
+			io_is_imperial_trigger = yes
+			independent = yes
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = delegated_appointment
+				revoke_law = county_appointment
+				holder_scope = {
+					any_realm_title = {
+						clr_title_flag = ignored_by@PREV				
+					}
+					any_realm_title = {
+						limit = {
+							lower_tier_than = DUKE
+							NOT = {liege = PREVPREV}
+						}
+						set_title_flag = ignored_by@PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_law = {county_appointment}
+				}
+				custom_tooltip = {
+					text = TT_io_revoke_county_appointment
+				}
+			}
+			if = {
+				limit = {
+					has_law = {delegated_appointment}
+				}
+				custom_tooltip = {
+					text = TT_io_duchy_appointment
+				}
+			}
+		}
+	}
+
+	county_appointment = {
+		group = appointment_law
+		allow = {
+			has_law = duchy_appointment
+		}
+		potential = {
+			io_is_imperial_trigger = yes
+			independent = yes
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = delegated_appointment
+				revoke_law = duchy_appointment
+				holder_scope = {
+					any_realm_title = {
+						clr_title_flag = ignored_by@PREV				
+					}
+					any_realm_title = {
+						limit = {
+							lower_tier_than = COUNT
+							NOT = {liege = PREVPREV}
+						}
+						set_title_flag = ignored_by@PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_law = {duchy_appointment}
+				}
+				custom_tooltip = {
+					text = TT_io_county_appointment
+				}
+			}
+
+		}
+	}
+
+}

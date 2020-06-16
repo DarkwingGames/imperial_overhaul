@@ -4,7 +4,6 @@ imperial_appointment = {
 
 		additive_modifier = { # Title holder is always an Elector
 			value = 500
-
 			FROMFROM = {
 				holder_scope = {
 					character = ROOT
@@ -12,15 +11,45 @@ imperial_appointment = {
 			}
 		}
 
-		additive_modifier = { # his liege as well
+		additive_modifier = { # as is his liege
 			value = 500
-			FROMFROM = { 
+			FROMFROM = {
+				NOT = {
+					has_title_flag = ignored_by@ROOT
+				} 
+				holder_scope = {
+					liege = {
+						character = ROOT 
+					}
+				}
+			}
+		}
+		
+		additive_modifier = { # as is his liege
+			value = 500
+			FROMFROM = {
+				NOT = {
+					has_title_flag = ignored_by@ROOT
+				} 
 				holder_scope = {
 					top_liege = {
 						character = ROOT 
 					}
 				}
 			}
+		}
+		
+		additive_modifier = { #and the lieges councillors and commanders as well as members of the Imperial court
+			value = 50
+			FROMFROM = {
+				NOT = {
+					has_title_flag = ignored_by@ROOT
+				} 
+				holder_scope = {
+					same_liege = ROOT
+				}
+			}
+			io_is_elector = yes
 		}
 	}
 
@@ -66,6 +95,38 @@ imperial_appointment = {
 	}
 
 	candidate_trigger = {
-		dynasty = ROOT
+		FROM = {
+			prisoner = no
+			OR = {
+				AND = {#either a landed de jure vassal of the title
+					is_ruler = yes
+					de_jure_liege_or_above = FROMFROM	
+				}
+				AND = {#or the same dynasty as the title holder + either dejure or unlanded
+					dynasty = ROOT
+					OR = {
+						is_ruler = no
+						de_jure_liege_or_above = FROMFROM	
+					}
+				}
+				AND = {# or an unlanded subject of the title holder
+					liege = {
+						character = ROOT
+					} 
+					is_ruler = no
+				}
+				AND = { #or an unlanded subject of the liege of the title holder
+					same_liege = ROOT
+					is_ruler = no
+				}
+				AND = {# or a member of the imperial court
+					is_ruler = no
+					host = {
+						independent = yes
+						io_is_imperial_trigger = yes
+					}
+				}
+			}
+		}
 	}
 }

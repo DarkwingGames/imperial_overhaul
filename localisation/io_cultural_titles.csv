@@ -1,0 +1,91 @@
+####GENERAL ########
+province_count;Viscount;;;;;;;;;x
+province_duke;Viceduke;;;;;;;;;x
+province_king;Viceroy;;;;;;;;;x
+
+province_count_female;Viscountess;;;;;;;;;x
+province_duke_female;Viceduchess;;;;;;;;;x
+province_king_female;Vicereine;;;;;;;;;x
+
+province_county;Viscounty;;;;;;;;;x
+province_duchy;Viceduchy;;;;;;;;;x
+province_kingdom;Viceroyalty;;;;;;;;;x
+
+province_county_of;Viscounty of;;;;;;;;;x
+province_duchy_of;Viceduchy of;;;;;;;;;x
+province_kingdom_of;Viceroyalty of;;;;;;;;;x
+
+
+##### BYZANTINE ######
+romanimperial_barony_byzantine;Palace;;;;;;;;;x
+
+province_baron_byzantine;Comes;;;;;;;;;x
+province_count_byzantine;Tourmarch;;;;;;;;;x
+province_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
+province_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
+
+province_baron_female_byzantine;Comissa;;;;;;;;;x
+province_count_female_byzantine;Tourmarcha;;;;;;;;;x
+province_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
+province_king_female_byzantine;Exarchessa;Exarque;Exarchessa;;Exarca;;;;;;;;;x
+
+province_barony_byzantine;Kastron;;;;;;;;;x
+province_county_byzantine;Tourma;;;;;;;;;x
+province_duchy_byzantine;Theme;;;;;;;;;x
+province_kingdom_byzantine;Exarchate;;;;;;;;;x
+
+province_barony_of_byzantine;Kastron of;;;;;;;;;x
+province_county_of_byzantine;Tourma of;;;;;;;;;x
+province_duchy_of_byzantine;Theme of;;;;;;;;;x
+province_kingdom_of_byzantine;Exarchate of;;;;;;;;;x
+
+
+##### ROMAN ######
+province_barony_roman;Castrum;;;;;;;;;x
+province_county_roman;Colonia;;;;;;;;;x
+province_duchy_roman;Provincia;;;;;;;;;x
+province_kingdom_roman;Prefecture;;;;;;;;;x
+
+province_barony_roman;Castrum;;;;;;;;;x
+province_county_of_roman;Colonia;;;;;;;;;x
+province_duchy_of_roman;Provincia;;;;;;;;;x
+province_kingdom_of_roman;Prefecture of;;;;;;;;;x
+
+province_baron_roman;Legate;;;;;;;;;x
+province_count_roman;Magistrate;;;;;;;;;x
+province_duke_roman;Governor;;;;;;;;;x
+province_king_roman;Prefect;;;;;;;;;x
+
+province_baron_female_roman;Legata;;;;;;;;;x
+province_count_female_roman;Magistrata;;;;;;;;;x
+province_duke_female_roman;Governess;;;;;;;;;x
+province_king_female_roman;Prefecta;;;;;;;;;x
+
+####### HRE ########
+
+province_barony_german;Burgraviate;;;;;;;;;x
+province_county_german;Palatinate;;;;;;;;;x
+province_duchy_german;Principality;;;;;;;;;x
+province_kingdom_german;Grand Principality;;;;;;;;;x
+
+province_barony_german;Burgraviate of;;;;;;;;;x
+province_county_of_german;Palatinate of;;;;;;;;;x
+province_duchy_of_german;Principality of;;;;;;;;;x
+province_kingdom_of_german;Grand Principality of;;;;;;;;;x
+
+province_baron_german;Burgrave;;;;;;;;;x
+province_count_german;Palatine;;;;;;;;;x
+province_duke_german;Prince;;;;;;;;;x
+province_king_german;Grand Prince;;;;;;;;;x
+
+province_baron_female_german;Burgravin;;;;;;;;;x
+province_count_female_german;Pfalzgravin;;;;;;;;;x
+province_duke_female_german;Princess;;;;;;;;;x
+province_king_female_german;Grand Princess;;;;;;;;;x
+
+province_duke_byzantine_plural;Strategoi;;;;;;;;;x
+province_duke_roman_plural;Governors;;;;;;;;;x
+province_duke_german_plural;Princes;;;;;;;;;x
+province_duke_plural;Vicedukes;;;;;;;;;x
+
+

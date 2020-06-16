@@ -6,6 +6,13 @@ io_is_elector = {
 			is_councillor = yes
 			has_minor_title = yes
 			has_minor_title = title_commander
+			AND = {
+				host = {
+					independent = yes
+					io_is_imperial_trigger = yes
+				}
+			}
+			
 		}
 	}
 }

@@ -106,6 +106,224 @@ defined_text = {
 		trigger = {
 			io_is_imperial_trigger = no
 		}
-		localisation_key = io_grant_title_text_1
+		localisation_key = delegated
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialCountyName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_county_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_county_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_county_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_county
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialDuchyName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_duchy_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_duchy_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_duchy_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_duchy
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialKingdomName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_kingdom_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_kingdom_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_kingdom_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_kingdom
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialCountName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_count_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_count_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_count_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_count
+	}
+}
+
+
+defined_text = {
+	name = GetCulturalImperialDukeName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_duke_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_duke_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_duke_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_duke
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialDukeNamePlural
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_duke_byzantine_plural
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_duke_roman_plural
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_duke_german_plural
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_duke_plural
+	}
+}
+
+defined_text = {
+	name = GetCulturalImperialKingName
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = byzantine
+		}
+		localisation_key = province_king_byzantine
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = roman
+		}
+		localisation_key = province_king_roman
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = yes
+			culture = german
+		}
+		localisation_key = province_king_german
+	}
+	text = {
+		trigger = {
+			io_is_imperial_trigger = no
+		}
+		localisation_key = province_king
 	}
 }

@@ -50,14 +50,27 @@ io_refused_bribe_offer;Refused Gift;;;;;;;;;x
 imperial_appointment;Imperial Appointment;;;;;;;;;x
 succ_imperial_appointment;Imperial Appointment;;;;;;;;;x
 succ_imperial_appointment_desc;The successor to this title is appointed by the Emperor, his council and his commanders. The current title holder and other powerful members of the Imperial Court can also influence the appointment process. Each elector has a different voting strength, based on his prestige, minor titles and attributes, making some more influential than others. Viable candiates are members of the Imperial court and the current ruler's court, close relatives of the current ruler, and claimants.;;;;;;;;;x 
-romanimperial_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
-romanimperial_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
-romanimperial_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
-romanimperial_king_female_byzantine;Exarchessa;Exarque;Exarchessa;;Exarca;;;;;;;;;x
 
-province_duke_byzantine;Strategos;Strategos;Strategos;;Strategos;;;;;;;;;x
-province_duke_female_byzantine;Strategitissa;Strategitissa;Strategitissa;;Estratega;;;;;;;;;x
-province_king_byzantine;Exarch;Exarque;Exarch;;Exarca;;;;;;;;;x
-province_king_female_byzantine;Exarchessa;Exarque;Exarchessa;;Exarca;;;;;;;;;x
 
-province_duchy_byzantine;Theme
+appointment_law; Imperial Appointment;;;;;;;;;x
+appointment_law_desc; These laws govern which governors can be directly appointed by the [Root.Holder.GetTier].;;;;;;;;;x
+
+delegated_appointment; Delegated Governor Appointment;;;;;;;;;x
+delegated_appointment_option;Delegated;;;;;;;;;x
+delegated_appointment_desc; The [Root.Holder.GetTier] has delegated the appointment of most local and regional governors to his direct subordinates, who in turn are appointed by [Root.Holder.GetHerHim].;;;;;;;;;x 
+
+duchy_appointment; Regional Governor Appointment;;;;;;;;;x
+duchy_appointment_option;Regional;;;;;;;;;x
+duchy_appointment_desc; The [Root.Holder.GetTier] holds the right to appoint regional governors down to the level of individual [Root.Holder.GetCulturalImperialDukeNamePlural], giving [Root.Holder.GetHerHim] more personal control at the price of an increased strain on the administration.;;;;;;;;;x 
+
+duchy_appointment; Delegated Appointment;;;;;;;;;x
+duchy_appointment_option;Regional;;;;;;;;;x
+duchy_appointment_desc; The [Root.Holder.GetTier] holds the right to appoint regional governors down to the level of individual [Root.Holder.GetCulturalImperialCountName], giving [Root.Holder.GetHerHim] even more personal control at the price of an large strain on the administration.;;;;;;;;;x 
+
+
+TT_io_revoke_duchy_appointment; §Y*§! Can vote on the appointment of §Ydirect vassals§!\n §R*§! Can no longer vote on the appointment of §YDuke§! tier governors, unless you are they are your direct vassals;;;;;;;;;x 
+TT_io_delegated_appointment; §Y*§! Can vote on the appointment of §Ydirect vassals§!;;;;;;;;;x
+TT_io_revoke_county_appointment; §Y*§! Can vote on the appointment of §Ydirect vassals§!\n §Y*§! Can vote on the appointment of §YDuke§! tier governors, even if they are not your direct vassals\n §R*§! Can no longer vote on the appointment of §YCount§! tier governors, unless they are your direct vassals;;;;;;;;;x
+TT_io_duchy_appointment; §Y*§! Can vote on the appointment of §Ydirect vassals§!\n §Y*§! Can vote on the appointment of §YDuke§! tier governors, even if they are not your direct vassals;;;;;;;;;x
+TT_io_county_appointment; §Y*§! Can vote on the appointment of §Ydirect vassals§!\n §Y*§! Can vote on the appointment of §YDuke§! tier governors, even if they are not your direct vassals\n §Y*§! Can vote on the appointment of §YCount§! tier governors, even if they are not your direct vassals;;;;;;;;;x
+
