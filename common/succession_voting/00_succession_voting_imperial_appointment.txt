@@ -3,7 +3,7 @@ imperial_appointment = {
 		days = -5
 
 		additive_modifier = { # Title holder is always an Elector
-			value = 30
+			value = 500
 
 			FROMFROM = {
 				holder_scope = {
@@ -14,25 +14,14 @@ imperial_appointment = {
 
 		additive_modifier = { # his liege as well
 			value = 500
-			
+			FROMFROM = { 
+				holder_scope = {
+					top_liege = {
+						character = ROOT 
+					}
+				}
+			}
 		}
-
-		#additive_modifier = { #lieges councillors + commanders too
-		#	value = 20
-		#	AND = {
-		#		FROMFROM = {
-		#			holder_scope = {
-		#				liege = {
-		#					any_courtier_or_vassal = {
-		#						io_is_elector = yes
-		#					}
-		#				}
-		#			}
-		#		}
-		#		
-		#	}
-			
-		#}
 	}
 
 
