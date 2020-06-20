@@ -3,13 +3,15 @@ on_startup = {
 	io_on_action_event.1 #Flag imperial characters, set titles to nomadic to disallow revocation
 	io_on_action_event.2 #Transfer flags from title history to characters
 	io_on_action_event.3 #Flag Empires that are supposed to start with Imperial Government
+	io_on_action_event.12#Store independent imperial rulers
+	io_on_action_event.14
 	}
 }
 
 on_new_holder_inheritance = {
 	events = {
 		io_on_action_event.4 #Renomadify titles after inheritance
-		
+		io_on_action_event.13#Store independent imperial rulers
 		
 	}
 }
@@ -18,7 +20,7 @@ on_new_holder = {
 	events = {
 		io_on_action_event.4 #Renomadify titles after inheritance
 		io_on_action_event.5 #Cleans up flags when characters become unlanded
-		
+		io_on_action_event.13#Store independent imperial rulers
 	}
 }
 

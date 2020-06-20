@@ -7,38 +7,26 @@ law_groups = {
 laws = {
 	delegated_appointment = {
 		group = appointment_law
+		#default = yes
 		allow = {
-			has_law = duchy_appointment
+			NOT = { has_law = county_appointment } 
 		}
 		potential = {
-			io_is_imperial_trigger = yes
-			independent = yes
+			holder_scope = {
+				io_is_imperial_trigger = yes
+				independent = yes
+			}
 		}
 		revoke_allowed = { always = no }
 		ai_will_do = { factor = 0 }
 		ai_will_revoke = { factor = 0 }
 		pass_effect = { }
 		effect = {
-			hidden_tooltip = {
-				revoke_law = duchy_appointment
-				revoke_law = county_appointment
-				holder_scope = {
-					any_realm_title = {
-						clr_title_flag = ignored_by@PREV				
-					}
-					any_realm_title = {
-						limit = {
-							lower_tier_than = KING
-							NOT = {liege = PREVPREV}
-						}
-						set_title_flag = ignored_by@PREV
-					}
-				}
-			}
 			if = {
 				limit = {
-					has_law = {duchy_appointment}
+					has_law = duchy_appointment
 				}
+					
 				custom_tooltip = {
 					text = TT_io_revoke_duchy_appointment
 	
@@ -46,11 +34,12 @@ laws = {
 			}
 			if = {
 				limit = {
-					has_law = {duchy_appointment}
+					NOT = {
+						has_law = duchy_appointment
+					}
 				}
 				custom_tooltip = {
-					text = TT_io_kingddom_appointment
-	
+					text = TT_io_delegated_appointment
 				}
 			}
 		}
@@ -60,8 +49,7 @@ laws = {
 		group = appointment_law
 		allow = {
 			OR = {
-				has_law = delegated_appointment
-				has_law = county_appointment
+				always = yes
 			}
 		}
 		potential = {
@@ -73,25 +61,9 @@ laws = {
 		ai_will_revoke = { factor = 0 }
 		pass_effect = { }
 		effect = {
-			hidden_tooltip = {
-				revoke_law = delegated_appointment
-				revoke_law = county_appointment
-				holder_scope = {
-					any_realm_title = {
-						clr_title_flag = ignored_by@PREV				
-					}
-					any_realm_title = {
-						limit = {
-							lower_tier_than = DUKE
-							NOT = {liege = PREVPREV}
-						}
-						set_title_flag = ignored_by@PREV
-					}
-				}
-			}
 			if = {
 				limit = {
-					has_law = {county_appointment}
+					has_law = county_appointment
 				}
 				custom_tooltip = {
 					text = TT_io_revoke_county_appointment
@@ -99,13 +71,14 @@ laws = {
 			}
 			if = {
 				limit = {
-					has_law = {delegated_appointment}
+					has_law = delegated_appointment
 				}
 				custom_tooltip = {
 					text = TT_io_duchy_appointment
 				}
 			}
 		}
+		vassal_limit = -5
 	}
 
 	county_appointment = {
@@ -122,32 +95,11 @@ laws = {
 		ai_will_revoke = { factor = 0 }
 		pass_effect = { }
 		effect = {
-			hidden_tooltip = {
-				revoke_law = delegated_appointment
-				revoke_law = duchy_appointment
-				holder_scope = {
-					any_realm_title = {
-						clr_title_flag = ignored_by@PREV				
-					}
-					any_realm_title = {
-						limit = {
-							lower_tier_than = COUNT
-							NOT = {liege = PREVPREV}
-						}
-						set_title_flag = ignored_by@PREV
-					}
-				}
+			custom_tooltip = {
+				text = TT_io_county_appointment
 			}
-			if = {
-				limit = {
-					has_law = {duchy_appointment}
-				}
-				custom_tooltip = {
-					text = TT_io_county_appointment
-				}
-			}
-
 		}
+		vassal_limit = -10
 	}
 
 }

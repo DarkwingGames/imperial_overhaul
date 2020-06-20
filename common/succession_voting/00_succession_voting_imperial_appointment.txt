@@ -11,31 +11,49 @@ imperial_appointment = {
 			}
 		}
 
-		additive_modifier = { # as is his liege
+		additive_modifier = { # Liege is an Elector
 			value = 500
 			FROMFROM = {
 				NOT = {
 					has_title_flag = ignored_by@ROOT
-				} 
+				}
 				holder_scope = {
 					liege = {
 						character = ROOT 
 					}
 				}
+	
 			}
 		}
-		
-		additive_modifier = { # as is his liege
+
+		additive_modifier = { # Emperor/top liege is an Elector, depending on his laws
 			value = 500
 			FROMFROM = {
-				NOT = {
-					has_title_flag = ignored_by@ROOT
-				} 
-				holder_scope = {
-					top_liege = {
-						character = ROOT 
+				OR = {
+					AND = {
+						tier = duke
+						holder_scope = {
+							top_liege = {
+								character = ROOT
+								primary_title = {
+									has_law = duchy_appointment
+								} 
+							}
+						}
+					}
+					AND = {
+						tier = count
+						holder_scope = {
+							top_liege = {
+								character = ROOT
+								primary_title = {
+									has_law = county_appointment
+								} 
+							}
+						}
 					}
 				}
+	
 			}
 		}
 		
@@ -99,7 +117,6 @@ imperial_appointment = {
 			prisoner = no
 			OR = {
 				AND = {#either a landed de jure vassal of the title
-					is_ruler = yes
 					de_jure_liege_or_above = FROMFROM	
 				}
 				AND = {#or the same dynasty as the title holder + either dejure or unlanded

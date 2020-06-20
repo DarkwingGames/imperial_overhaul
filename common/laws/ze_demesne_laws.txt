@@ -559,7 +559,8 @@ laws = {
 		group = revoke_title_law
 		default = yes
 		allow = { 
-			NOT = { has_law = revoke_title_law_2 } }
+			NOT = { has_law = revoke_title_law_2 }
+		}
 		potential = {
 			has_dlc = "Zeus"
 			NOT = { holder_scope = { is_nomadic = yes } }

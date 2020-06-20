@@ -50,4 +50,43 @@ io_is_imperial_trigger = {
 	}
 }
 
+io_is_imperial_capital_province_trigger = {
+	custom_tooltip = {
+		text = TT_io_is_imperial_capital
+		holder_scope = {
+			independent = yes
+			io_is_imperial_trigger = yes
+		}
+		#any_province_holding = {is_capital = yes}
+	}
+	
+}
+
+io_can_be_imperial_vassal_trigger = { # Shared vassal requirements between all types of imperial province government, liege requirements are different for the types
+	is_theocracy = no
+	is_patrician = no
+	independent = no
+	OR = {
+		AND = {
+			higher_tier_than = BARON
+			is_feudal = yes
+		}
+		
+		AND = {
+			tier = BARON #Barons = Fort commanders under imperial government
+			is_feudal = yes
+		}
+		AND = {
+			tier = BARON
+			primary_title = {
+				holding_type = city
+			}
+			liege = {
+				independent = yes
+				#io_is_imperial_trigger = yes
+			}
+		}
+	}
+}
+
 

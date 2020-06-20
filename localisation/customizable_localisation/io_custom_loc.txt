@@ -115,7 +115,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_county_byzantine
 	}
@@ -133,10 +133,7 @@ defined_text = {
 		}
 		localisation_key = province_county_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_county
 	}
 }
@@ -146,7 +143,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_duchy_byzantine
 	}
@@ -164,10 +161,7 @@ defined_text = {
 		}
 		localisation_key = province_duchy_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_duchy
 	}
 }
@@ -177,7 +171,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_kingdom_byzantine
 	}
@@ -195,10 +189,7 @@ defined_text = {
 		}
 		localisation_key = province_kingdom_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_kingdom
 	}
 }
@@ -208,7 +199,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_count_byzantine
 	}
@@ -226,10 +217,7 @@ defined_text = {
 		}
 		localisation_key = province_count_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_count
 	}
 }
@@ -240,7 +228,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_duke_byzantine
 	}
@@ -258,10 +246,7 @@ defined_text = {
 		}
 		localisation_key = province_duke_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_duke
 	}
 }
@@ -271,7 +256,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_duke_byzantine_plural
 	}
@@ -289,10 +274,7 @@ defined_text = {
 		}
 		localisation_key = province_duke_german_plural
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_duke_plural
 	}
 }
@@ -302,7 +284,7 @@ defined_text = {
 	text = {
 		trigger = {
 			io_is_imperial_trigger = yes
-			culture = byzantine
+			culture_group = byzantine
 		}
 		localisation_key = province_king_byzantine
 	}
@@ -320,10 +302,7 @@ defined_text = {
 		}
 		localisation_key = province_king_german
 	}
-	text = {
-		trigger = {
-			io_is_imperial_trigger = no
-		}
+	fallback_text = {
 		localisation_key = province_king
 	}
 }

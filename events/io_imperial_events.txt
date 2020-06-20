@@ -410,3 +410,5 @@ letter_event = { #Vassal is informed that his bribe offer has been accepted
 	}
 }
 
+
+
